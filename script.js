@@ -2,243 +2,215 @@
    EKKO MUSIC — Script principal
    ================================================================ */
 
-// ── NAVBAR SCROLL ──────────────────────────────────────────────
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-}, { passive: true });
+'use strict';
 
-// ── MENU MOBILE ────────────────────────────────────────────────
-const navToggle = document.getElementById('navToggle');
-const navLinks  = document.getElementById('navLinks');
+// ── CURSEUR PERSONNALISÉ ────────────────────────────────────────
+const dot  = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
 
-navToggle.addEventListener('click', () => {
-  navToggle.classList.toggle('open');
-  navLinks.classList.toggle('open');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left  = mx + 'px';
+  dot.style.top   = my + 'px';
 });
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navToggle.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
-});
-
-// ── REVEAL AU SCROLL ───────────────────────────────────────────
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      // stagger delay basé sur la position dans la grille
-      const delay = entry.target.closest('.services-grid, .projets-grid')
-        ? [...entry.target.parentElement.children].indexOf(entry.target) * 80
-        : 0;
-      setTimeout(() => entry.target.classList.add('visible'), delay);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ── FILTRE PROJETS ─────────────────────────────────────────────
-const filterBtns  = document.querySelectorAll('.filter-btn');
-const projetCards = document.querySelectorAll('.projet-card');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const filter = btn.dataset.filter;
-    projetCards.forEach(card => {
-      const match = filter === 'all' || card.dataset.category === filter;
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(12px)';
-
-      setTimeout(() => {
-        card.classList.toggle('hidden', !match);
-        if (match) {
-          requestAnimationFrame(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          });
-        }
-      }, 200);
-    });
-  });
-});
-
-// Transition CSS pour les cartes de projet
-projetCards.forEach(card => {
-  card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-});
-
-// ── PARTICLES HERO ─────────────────────────────────────────────
-(function initParticles() {
-  const container = document.getElementById('particles');
-  if (!container) return;
-
-  const COUNT = 40;
-  const fragment = document.createDocumentFragment();
-
-  for (let i = 0; i < COUNT; i++) {
-    const p = document.createElement('div');
-    const size = Math.random() * 2 + 0.5;
-    const x    = Math.random() * 100;
-    const y    = Math.random() * 100;
-    const dur  = Math.random() * 8 + 6;
-    const del  = Math.random() * 6;
-
-    p.style.cssText = `
-      position: absolute;
-      left: ${x}%;
-      top: ${y}%;
-      width: ${size}px;
-      height: ${size}px;
-      background: rgba(201, 168, 76, ${Math.random() * 0.4 + 0.1});
-      border-radius: 50%;
-      animation: floatParticle ${dur}s ${del}s ease-in-out infinite alternate;
-      pointer-events: none;
-    `;
-    fragment.appendChild(p);
-  }
-
-  container.appendChild(fragment);
-
-  // Injection du keyframe si absent
-  if (!document.getElementById('particleKF')) {
-    const style = document.createElement('style');
-    style.id = 'particleKF';
-    style.textContent = `
-      @keyframes floatParticle {
-        from { transform: translate(0, 0) scale(1); opacity: 0.3; }
-        to   { transform: translate(${randRange(-30, 30)}px, ${randRange(-40, -10)}px) scale(1.3); opacity: 0.8; }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  function randRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+// Ring suit avec un léger lag
+(function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
 })();
 
-// ── FORMULAIRE DE CONTACT ──────────────────────────────────────
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+document.querySelectorAll('a, button, .cover, .pcard, .svc').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
 
-    const nom     = document.getElementById('nom').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const sujet   = document.getElementById('sujet').value;
-    const message = document.getElementById('message').value.trim();
+// ── NAVBAR SCROLL ───────────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
 
-    if (!nom || !email || !message) {
-      shakeForm(contactForm);
-      return;
-    }
+// ── MENU MOBILE ─────────────────────────────────────────────────
+const toggle = document.getElementById('navToggle');
+const links  = document.getElementById('navLinks');
 
-    const sujetLabel = sujet
-      ? `[Ekko Music - ${sujet}] Message de ${nom}`
-      : `[Ekko Music] Message de ${nom}`;
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('open');
+  links.classList.toggle('open');
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  toggle.classList.remove('open');
+  links.classList.remove('open');
+}));
 
-    const body = encodeURIComponent(
-      `Bonjour Ekko,\n\nJe m'appelle ${nom}.\n\n${message}\n\nCordialement,\n${nom}\n${email}`
-    );
+/* ================================================================
+   ARC 3D DE COVERS
+   ================================================================
+   Principe : les covers sont placées en arc (cercle vu de face).
+   L'arc tourne lentement en continu (auto-drift).
+   La souris crée un léger parallax supplémentaire.
+   ================================================================ */
+(function initArc() {
+  const covers  = [...document.querySelectorAll('.cover')];
+  const N       = covers.length;
+  if (!N) return;
 
-    window.location.href =
-      `mailto:ekkomusicoff@gmail.com?subject=${encodeURIComponent(sujetLabel)}&body=${body}`;
-  });
-}
+  // Paramètres de l'arc
+  const RADIUS     = Math.min(window.innerWidth * 0.55, 520); // rayon du cercle
+  const SPREAD     = 0.62;   // portion du cercle utilisée (0.5 = demi-cercle)
+  const DRIFT_SPD  = 0.00018; // vitesse de rotation auto (rad/frame)
+  const TILT       = 18;      // inclinaison X de la scène (deg)
 
-function shakeForm(form) {
-  form.style.animation = 'shake 0.4s ease';
-  form.addEventListener('animationend', () => { form.style.animation = ''; }, { once: true });
+  let baseAngle    = 0;       // angle de base (auto-drift)
+  let mouseOffsetX = 0;       // parallax souris
+  let targetMouseX = 0;
 
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60%  { transform: translateX(-6px); }
-      40%, 80%  { transform: translateX(6px); }
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-// ── ACTIVE NAV LINK AU SCROLL ─────────────────────────────────
-const sections    = document.querySelectorAll('section[id]');
-const navAnchors  = document.querySelectorAll('.nav-links a');
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navAnchors.forEach(a => {
-        a.style.color = '';
-        if (a.getAttribute('href') === `#${entry.target.id}`) {
-          a.style.color = 'var(--gold)';
-        }
-      });
-    }
-  });
-}, { threshold: 0.4 });
-
-sections.forEach(s => sectionObserver.observe(s));
-
-// ── CURSEUR PERSONNALISÉ (desktop uniquement) ─────────────────
-if (window.matchMedia('(pointer: fine)').matches) {
-  const cursor = document.createElement('div');
-  cursor.id = 'custom-cursor';
-  cursor.style.cssText = `
-    position: fixed;
-    width: 8px; height: 8px;
-    background: var(--gold, #c9a84c);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease, opacity 0.3s ease;
-    transform: translate(-50%, -50%);
-    top: 0; left: 0;
-  `;
-
-  const cursorRing = document.createElement('div');
-  cursorRing.style.cssText = `
-    position: fixed;
-    width: 32px; height: 32px;
-    border: 1px solid rgba(201, 168, 76, 0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transition: transform 0.25s ease, width 0.25s ease, height 0.25s ease;
-    transform: translate(-50%, -50%);
-    top: 0; left: 0;
-  `;
-
-  document.body.appendChild(cursor);
-  document.body.appendChild(cursorRing);
-
-  let mx = 0, my = 0;
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top  = my + 'px';
-    cursorRing.style.left = mx + 'px';
-    cursorRing.style.top  = my + 'px';
+  // Écoute souris pour parallax
+  document.addEventListener('mousemove', e => {
+    targetMouseX = ((e.clientX / window.innerWidth) - 0.5) * 0.3;
   });
 
-  document.querySelectorAll('a, button, .projet-card, .service-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursorRing.style.width  = '52px';
-      cursorRing.style.height = '52px';
-      cursorRing.style.borderColor = 'rgba(201, 168, 76, 0.9)';
-      cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+  // Profondeur → opacité + échelle
+  function depthToStyle(z, maxZ) {
+    const t = (z + maxZ) / (2 * maxZ); // 0→1 (0=arrière, 1=avant)
+    return {
+      scale:   0.65 + t * 0.35,
+      opacity: 0.25 + t * 0.75,
+      blur:    (1 - t) * 3,
+    };
+  }
+
+  function layout() {
+    mouseOffsetX += (targetMouseX - mouseOffsetX) * 0.06;
+
+    const totalAngle = Math.PI * 2 * SPREAD;
+    const startAngle = -totalAngle / 2;
+
+    covers.forEach((cover, i) => {
+      const fraction = N > 1 ? i / (N - 1) : 0.5;
+      const theta = startAngle + fraction * totalAngle + baseAngle + mouseOffsetX;
+
+      const x = Math.sin(theta) * RADIUS;
+      const z = Math.cos(theta) * RADIUS;
+
+      const { scale, opacity, blur } = depthToStyle(z, RADIUS);
+
+      // zIndex : les covers à l'avant passent par-dessus
+      const zIndex = Math.round((z + RADIUS) * 10);
+
+      cover.style.zIndex   = zIndex;
+      cover.style.opacity  = opacity;
+
+      // translateX + translateZ dans la perspective, translateY centrage vertical
+      cover.style.transform =
+        `translateX(${x}px) translateZ(${z * 0.4}px) translateY(-50%) scale(${scale})`;
+
+      if (blur > 0.3) {
+        cover.style.filter = `blur(${blur.toFixed(1)}px)`;
+      } else {
+        cover.style.filter = 'none';
+      }
     });
-    el.addEventListener('mouseleave', () => {
-      cursorRing.style.width  = '32px';
-      cursorRing.style.height = '32px';
-      cursorRing.style.borderColor = 'rgba(201, 168, 76, 0.5)';
-      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+
+    baseAngle -= DRIFT_SPD;
+    requestAnimationFrame(layout);
+  }
+
+  // Applique perspective sur le track
+  const track = document.getElementById('arcTrack');
+  track.style.transformStyle  = 'preserve-3d';
+  track.style.transform       = `rotateX(${TILT}deg)`;
+  track.style.width           = '0px'; // les covers sont positionnées absolument
+
+  layout();
+
+  // Pause au survol d'une cover
+  covers.forEach(cover => {
+    cover.addEventListener('mouseenter', () => { /* drift continue, juste visuellement agrandi */ });
+  });
+})();
+
+/* ================================================================
+   FILTRE PROJETS
+   ================================================================ */
+document.querySelectorAll('.f-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const f = btn.dataset.f;
+    document.querySelectorAll('.pcard').forEach(card => {
+      const show = f === 'all' || card.dataset.f === f;
+      card.style.transition = 'opacity .35s, transform .35s';
+      if (show) {
+        card.classList.remove('hidden');
+        requestAnimationFrame(() => { card.style.opacity = '1'; card.style.transform = ''; });
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(8px)';
+        setTimeout(() => card.classList.add('hidden'), 350);
+      }
     });
   });
-}
+});
+
+/* ================================================================
+   SCROLL REVEAL
+   ================================================================ */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity  = '1';
+      e.target.style.transform = 'translateY(0)';
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(
+  '.svc, .pcard, .apropos-right, .contact-left, .contact-form, .section-head'
+).forEach(el => {
+  el.style.opacity   = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity .7s ease, transform .7s ease';
+  revealObs.observe(el);
+});
+
+/* ================================================================
+   FORMULAIRE CONTACT → mailto
+   ================================================================ */
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const nom     = document.getElementById('nom').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const sujet   = document.getElementById('sujet').value;
+  const message = document.getElementById('message').value.trim();
+
+  if (!nom || !email || !message) {
+    const form = e.target;
+    form.style.animation = 'shake .4s ease';
+    form.addEventListener('animationend', () => form.style.animation = '', { once: true });
+    return;
+  }
+
+  const subj = encodeURIComponent(`[Ekko Music${sujet ? ' · ' + sujet : ''}] Message de ${nom}`);
+  const body = encodeURIComponent(`Bonjour Ekko,\n\n${message}\n\nCordialement,\n${nom}\n${email}`);
+  window.location.href = `mailto:ekkomusicoff@gmail.com?subject=${subj}&body=${body}`;
+});
+
+// CSS shake
+const s = document.createElement('style');
+s.textContent = `
+  @keyframes shake {
+    0%,100%{ transform:translateX(0) }
+    20%,60%{ transform:translateX(-6px) }
+    40%,80%{ transform:translateX(6px) }
+  }
+`;
+document.head.appendChild(s);
