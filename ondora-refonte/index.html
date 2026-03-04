@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ondora Productions — Studio d'enregistrement & Post-production</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="images/logo.png" alt="Ondora Productions" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#propos">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Nous contacter</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero" id="accueil">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb--1"></div>
+      <div class="hero-orb hero-orb--2"></div>
+      <div class="hero-orb hero-orb--3"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Studios à Tours &amp; Saint-Brieuc
+      </div>
+      <h1 class="hero-title">
+        Le son qui<br />
+        <span class="gradient-text">fait vibrer</span><br />
+        votre projet
+      </h1>
+      <p class="hero-desc">
+        Ondora Productions — Studio de Post-Production, Composition &amp; Enregistrement.<br />
+        Donnez vie à vos créations avec un son professionnel.
+      </p>
+      <div class="hero-actions">
+        <a href="#projets" class="btn btn--primary">Voir nos projets</a>
+        <a href="#services" class="btn btn--ghost">Nos services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Studios</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">+100</span>
+          <span class="stat-label">Projets</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">8</span>
+          <span class="stat-label">Services</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ INFINITE BANNER 3D ═══════════════════ -->
+  <section class="banner-section">
+    <div class="banner-label">
+      <span>Nos Réalisations</span>
+      <div class="banner-label-line"></div>
+    </div>
+    <div class="banner-track-wrapper">
+      <div class="banner-fade banner-fade--left"></div>
+      <div class="banner-fade banner-fade--right"></div>
+      <div class="banner-track" id="bannerTrack">
+        <!-- Items dupliqués pour boucle infinie -->
+        <div class="banner-item">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album1.jpg" alt="Voy Voy" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album1.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Voy Voy</span>
+            <span class="album-type">Enregistrement</span>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album2.png" alt="Piano Tri" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album2.png" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Piano Tri</span>
+            <span class="album-type">Composition</span>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album3.jpg" alt="Le Corps Vermeil" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album3.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Le Corps Vermeil</span>
+            <span class="album-type">Post-Production</span>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album4.jpg" alt="Ascension" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album4.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Ascension</span>
+            <span class="album-type">Composition</span>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/bg-waves.jpg" alt="Sound Design" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/bg-waves.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Sound Design</span>
+            <span class="album-type">Mixage</span>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album1.jpg" alt="Studio Session" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album1.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Studio Session</span>
+            <span class="album-type">Enregistrement</span>
+          </div>
+        </div>
+        <!-- Duplicates for seamless loop -->
+        <div class="banner-item" aria-hidden="true">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album1.jpg" alt="Voy Voy" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album1.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Voy Voy</span>
+            <span class="album-type">Enregistrement</span>
+          </div>
+        </div>
+        <div class="banner-item" aria-hidden="true">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album2.png" alt="Piano Tri" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album2.png" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Piano Tri</span>
+            <span class="album-type">Composition</span>
+          </div>
+        </div>
+        <div class="banner-item" aria-hidden="true">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album3.jpg" alt="Le Corps Vermeil" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album3.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Le Corps Vermeil</span>
+            <span class="album-type">Post-Production</span>
+          </div>
+        </div>
+        <div class="banner-item" aria-hidden="true">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album4.jpg" alt="Ascension" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album4.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Ascension</span>
+            <span class="album-type">Composition</span>
+          </div>
+        </div>
+        <div class="banner-item" aria-hidden="true">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/bg-waves.jpg" alt="Sound Design" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/bg-waves.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Sound Design</span>
+            <span class="album-type">Mixage</span>
+          </div>
+        </div>
+        <div class="banner-item" aria-hidden="true">
+          <div class="album-card">
+            <div class="album-inner">
+              <img src="images/album1.jpg" alt="Studio Session" />
+              <div class="album-shine"></div>
+            </div>
+            <div class="album-reflection">
+              <img src="images/album1.jpg" alt="" />
+            </div>
+          </div>
+          <div class="album-meta">
+            <span class="album-title">Studio Session</span>
+            <span class="album-type">Enregistrement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SERVICES ═══════════════════ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Ce qu'on fait</span>
+        <h2 class="section-title">Accompagnement<br /><span class="gradient-text">intégral</span></h2>
+        <p class="section-desc">De l'idée à la diffusion, nous vous accompagnons à chaque étape de votre projet musical.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card service-card--featured">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+            </svg>
+          </div>
+          <h3>Mixage Audio</h3>
+          <p>Un mix équilibré et professionnel qui met en valeur chaque élément de votre production.</p>
+          <div class="service-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Post-Production</h3>
+          <p>Finalisation de vos projets avec un soin extrême du détail sonore.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/>
+            </svg>
+          </div>
+          <h3>Enregistrement</h3>
+          <p>Des prises de son de qualité studio dans nos espaces acoustiques traités.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+            </svg>
+          </div>
+          <h3>Composition</h3>
+          <p>Création de musiques originales adaptées à vos projets visuels ou auditifs.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <h3>Musique à l'Image</h3>
+          <p>Synchronisation parfaite entre son et image pour vos films, jeux vidéo et publicités.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </div>
+          <h3>Sound Design</h3>
+          <p>Création d'univers sonores uniques et immersifs pour tous types de médias.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Montage Son</h3>
+          <p>Édition précise et minutieuse pour un résultat sonore impeccable.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77l3-.04a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.32a16 16 0 0 0 6.29 6.29l1.86-1.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <h3>Voix off &amp; Bruitage</h3>
+          <p>Direction artistique et enregistrement de voix off et d'effets sonores sur mesure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROJETS ═══════════════════ -->
+  <section class="projets" id="projets">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Nos <span class="gradient-text">Projets</span></h2>
+        <p class="section-desc">Une sélection de nos dernières réalisations à travers différents genres et disciplines.</p>
+      </div>
+
+      <div class="projets-grid">
+        <article class="projet-card projet-card--large">
+          <div class="projet-img">
+            <img src="images/album1.jpg" alt="Voy Voy" loading="lazy" />
+            <div class="projet-overlay">
+              <span class="projet-type-badge">Enregistrement</span>
+            </div>
+          </div>
+          <div class="projet-info">
+            <h3>Voy Voy</h3>
+            <p>Session d'enregistrement complète, du tracking à la finalisation.</p>
+            <a href="#" class="projet-link">
+              Voir le projet
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="projet-card">
+          <div class="projet-img">
+            <img src="images/album3.jpg" alt="Le Corps Vermeil" loading="lazy" />
+            <div class="projet-overlay">
+              <span class="projet-type-badge">Post-Production</span>
+            </div>
+          </div>
+          <div class="projet-info">
+            <h3>Le Corps Vermeil</h3>
+            <p>Post-production complète pour ce projet ambitieux.</p>
+            <a href="#" class="projet-link">
+              Voir le projet
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="projet-card">
+          <div class="projet-img">
+            <img src="images/album4.jpg" alt="Ascension" loading="lazy" />
+            <div class="projet-overlay">
+              <span class="projet-type-badge">Composition</span>
+            </div>
+          </div>
+          <div class="projet-info">
+            <h3>Ascension</h3>
+            <p>Composition orchestrale et arrangement complet.</p>
+            <a href="#" class="projet-link">
+              Voir le projet
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="projet-card">
+          <div class="projet-img">
+            <img src="images/album2.png" alt="Piano Tri" loading="lazy" />
+            <div class="projet-overlay">
+              <span class="projet-type-badge">Mixage</span>
+            </div>
+          </div>
+          <div class="projet-info">
+            <h3>Piano Tri</h3>
+            <p>Mixage et mastering d'une série de compositions pour piano.</p>
+            <a href="#" class="projet-link">
+              Voir le projet
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="projets-cta">
+        <a href="#contact" class="btn btn--primary">Voir tous les projets</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ À PROPOS ═══════════════════ -->
+  <section class="apropos" id="propos">
+    <div class="container">
+      <div class="apropos-inner">
+        <div class="apropos-visual">
+          <div class="apropos-img-wrap">
+            <img src="images/bg-waves.jpg" alt="Studio Ondora" />
+            <div class="apropos-img-glow"></div>
+          </div>
+          <div class="apropos-card floating-card">
+            <div class="floating-card-icon">🎵</div>
+            <span class="floating-card-num">+100</span>
+            <span class="floating-card-label">Projets réalisés</span>
+          </div>
+          <div class="apropos-card floating-card floating-card--2">
+            <div class="floating-card-icon">📍</div>
+            <span class="floating-card-num">2</span>
+            <span class="floating-card-label">Studios en France</span>
+          </div>
+        </div>
+
+        <div class="apropos-content">
+          <span class="section-tag">Notre histoire</span>
+          <h2 class="section-title">Ils nous ont<br /><span class="gradient-text">fait confiance</span></h2>
+          <p class="apropos-text">
+            Ondora Productions est un studio de post-production, composition et enregistrement basé en France, avec deux studios à Tours et à Saint-Brieuc.
+          </p>
+          <p class="apropos-text">
+            Notre équipe passionnée accompagne artistes, réalisateurs et créateurs à chaque étape de leur projet — du premier accord jusqu'à la diffusion finale.
+          </p>
+
+          <div class="apropos-features">
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Équipements professionnels haut de gamme</span>
+            </div>
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Acoustique traitée dans nos studios</span>
+            </div>
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Ingénieurs du son expérimentés</span>
+            </div>
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Suivi personnalisé de chaque projet</span>
+            </div>
+          </div>
+
+          <div class="studios-badges">
+            <div class="studio-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <strong>Tours</strong>
+                <span>Studio principal</span>
+              </div>
+            </div>
+            <div class="studio-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <strong>Saint-Brieuc</strong>
+                <span>Studio secondaire</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT ═══════════════════ -->
+  <section class="contact" id="contact">
+    <div class="contact-bg">
+      <div class="contact-orb"></div>
+    </div>
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-content">
+          <span class="section-tag">Travaillons ensemble</span>
+          <h2 class="section-title">Prêt à donner vie<br />à votre <span class="gradient-text">projet ?</span></h2>
+          <p class="contact-desc">Discutons de votre vision. Notre équipe est disponible pour vous accompagner du premier contact jusqu'à la livraison finale.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Tours &amp; Saint-Brieuc, France</span>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77l3-.04a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.32a16 16 0 0 0 6.29 6.29l1.86-1.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>ondora.fr</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0a0a0a"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.5 7.5 1" stroke="#0a0a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M7 11c3-1.5 7-1 9.5 1" stroke="#0a0a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M6.5 8.5c3.5-1.5 8.5-1 11 1.5" stroke="#0a0a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="SoundCloud">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 17.5a2.5 2.5 0 0 0 2.5 2.5h15a4 4 0 0 0 0-8 4 4 0 0 0-7.5-2A2.5 2.5 0 0 0 1 17.5z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service souhaité</label>
+            <select id="service" name="service">
+              <option value="">Sélectionnez un service</option>
+              <option value="mixage">Mixage Audio</option>
+              <option value="postprod">Post-Production</option>
+              <option value="enregistrement">Enregistrement</option>
+              <option value="composition">Composition</option>
+              <option value="image">Musique à l'Image</option>
+              <option value="sounddesign">Sound Design</option>
+              <option value="montage">Montage Son</option>
+              <option value="voix">Voix off &amp; Bruitage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Votre projet</label>
+            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            Envoyer le message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="Ondora Productions" class="footer-logo" />
+          <p>Studio de Post-Production, Composition &amp; Enregistrement basé en France.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#propos">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Mixage Audio</a></li>
+            <li><a href="#services">Post-Production</a></li>
+            <li><a href="#services">Composition</a></li>
+            <li><a href="#services">Sound Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Studios</h4>
+          <ul>
+            <li><a href="#contact">Tours</a></li>
+            <li><a href="#contact">Saint-Brieuc</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2026 &copy; Ondora Productions — Record &amp; Production Studio</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Spotify">SP</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
