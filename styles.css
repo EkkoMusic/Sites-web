@@ -355,19 +355,33 @@ body.cursor-hover #cursor-ring {
 .clients-bar {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 1.25rem 0;
+  padding: 1rem 0;
   overflow: hidden;
+  background: var(--bg);
 }
 .clients-inner {
-  display: flex; gap: 2.5rem;
+  display: flex; gap: 1.25rem;
   width: max-content;
-  animation: marquee 22s linear infinite;
+  animation: marquee 36s linear infinite;
+  align-items: center;
 }
-.clients-inner span {
-  font-size: .7rem; font-weight: 500;
-  letter-spacing: .18em; text-transform: uppercase;
-  color: var(--dim);
-  white-space: nowrap;
+.clients-inner img {
+  height: 90px;
+  width: auto;
+  border-radius: 6px;
+  object-fit: cover;
+  opacity: .65;
+  filter: grayscale(20%);
+  transition: opacity .3s, filter .3s;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.clients-bar:hover .clients-inner {
+  animation-play-state: paused;
+}
+.clients-bar:hover .clients-inner img {
+  opacity: .85;
+  filter: grayscale(0%);
 }
 @keyframes marquee {
   from { transform: translateX(0); }
