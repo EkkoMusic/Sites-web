@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ekko Music — Producteur Musical</title>
+  <meta name="description" content="Ekko Music — Direction sonore, création musicale et composition pour vos projets pop culture, gaming et esports." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#accueil" class="nav-logo">EKKO<span>MUSIC</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="accueil" class="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+      <div class="hero-particles" id="particles"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tagline reveal">Direction sonore · Composition · Musique originale</p>
+      <h1 class="hero-title reveal">
+        <span class="title-line">EKKO</span>
+        <span class="title-line accent">MUSIC</span>
+      </h1>
+      <p class="hero-sub reveal">
+        Je compose des univers sonores pour les plus grands projets<br />
+        pop culture, gaming &amp; esports.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#projets" class="btn-primary">Voir mes projets</a>
+        <a href="#contact" class="btn-ghost">Me contacter</a>
+      </div>
+    </div>
+    <a href="#services" class="hero-scroll" aria-label="Scroll">
+      <span class="scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ─── CLIENTS / LOGOS ─── -->
+  <section class="clients">
+    <div class="container">
+      <p class="clients-label">Ils m'ont fait confiance</p>
+      <div class="clients-track">
+        <div class="clients-inner">
+          <span>Karmine Corp</span>
+          <span>ZeratoR</span>
+          <span>Galions</span>
+          <span>Fortnite Events</span>
+          <span>Trackmania</span>
+          <span>Esports FR</span>
+          <!-- duplicate for infinite scroll -->
+          <span>Karmine Corp</span>
+          <span>ZeratoR</span>
+          <span>Galions</span>
+          <span>Fortnite Events</span>
+          <span>Trackmania</span>
+          <span>Esports FR</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section id="services" class="services section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Ce que je fais</span>
+        <h2>Services</h2>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 24a8 8 0 1 0 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="24" y1="4" x2="24" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="24" y1="34" x2="24" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Direction Sonore</h3>
+          <p>Je construis l'identité sonore de votre projet de A à Z — du brief créatif jusqu'au rendu final, avec une cohérence artistique irréprochable.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="16" width="36" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M18 26l6-4 6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="14" y1="12" x2="34" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="18" y1="8" x2="30" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Composition Originale</h3>
+          <p>Bandes originales sur-mesure pour trailers, événements en direct, clips et contenus audiovisuels. Chaque note raconte votre histoire.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="10,8 38,24 10,40" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Gaming &amp; Esports</h3>
+          <p>Musique pensée pour l'univers gaming : trailers de compétitions, hymnes de club, ambiances de broadcast — intensité et émotion garanties.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6 L42 18 L42 36 L24 42 L6 36 L6 18 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Événements Live</h3>
+          <p>Habillages musicaux pour événements pop culture, tournois esports et shows en direct. De l'ouverture au closing, je crée le fil rouge sonore.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJETS ─── -->
+  <section id="projets" class="projets section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Mon travail</span>
+        <h2>Projets</h2>
+      </div>
+
+      <div class="projets-filters reveal">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="trailer">Trailers</button>
+        <button class="filter-btn" data-filter="event">Événements</button>
+        <button class="filter-btn" data-filter="album">Albums</button>
+      </div>
+
+      <div class="projets-grid">
+
+        <article class="projet-card reveal" data-category="trailer">
+          <div class="projet-img" style="--bg: linear-gradient(135deg, #1a0533 0%, #4a0080 100%);">
+            <span class="projet-play">▶</span>
+            <span class="projet-cat">Trailer</span>
+          </div>
+          <div class="projet-info">
+            <h3>Karmine Corp — Blue Rising</h3>
+            <p>Composition originale du trailer officiel de la Karmine Corp</p>
+          </div>
+        </article>
+
+        <article class="projet-card reveal" data-category="trailer">
+          <div class="projet-img" style="--bg: linear-gradient(135deg, #001a40 0%, #003380 100%);">
+            <span class="projet-play">▶</span>
+            <span class="projet-cat">Trailer</span>
+          </div>
+          <div class="projet-info">
+            <h3>Galions 2026</h3>
+            <p>Bande originale cinématique pour le trailer de l'équipe Galions</p>
+          </div>
+        </article>
+
+        <article class="projet-card reveal" data-category="event">
+          <div class="projet-img" style="--bg: linear-gradient(135deg, #1a1a00 0%, #806600 100%);">
+            <span class="projet-play">▶</span>
+            <span class="projet-cat">Événement</span>
+          </div>
+          <div class="projet-info">
+            <h3>Ascension — Fortnite</h3>
+            <p>Direction sonore de l'événement Ascension sur Fortnite</p>
+          </div>
+        </article>
+
+        <article class="projet-card reveal" data-category="event">
+          <div class="projet-img" style="--bg: linear-gradient(135deg, #001a1a 0%, #006666 100%);">
+            <span class="projet-play">▶</span>
+            <span class="projet-cat">Événement</span>
+          </div>
+          <div class="projet-info">
+            <h3>Ascension — Trackmania</h3>
+            <p>Habillage musical du tournoi Trackmania en partenariat avec ZeratoR</p>
+          </div>
+        </article>
+
+        <article class="projet-card reveal" data-category="album">
+          <div class="projet-img" style="--bg: linear-gradient(135deg, #1a0a00 0%, #80400a 100%);">
+            <span class="projet-play">▶</span>
+            <span class="projet-cat">Album</span>
+          </div>
+          <div class="projet-info">
+            <h3>900K</h3>
+            <p>Album original — une collection de compositions à travers différents univers sonores</p>
+          </div>
+        </article>
+
+        <article class="projet-card reveal" data-category="trailer">
+          <div class="projet-img" style="--bg: linear-gradient(135deg, #0a001a 0%, #3d0066 100%);">
+            <span class="projet-play">▶</span>
+            <span class="projet-cat">Trailer</span>
+          </div>
+          <div class="projet-info">
+            <h3>Galions 2025</h3>
+            <p>Musique originale pour le trailer de saison 2025 de l'équipe Galions</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="projets-cta reveal">
+        <a href="https://ekko-music.fr" target="_blank" rel="noopener" class="btn-primary">Voir tous les projets</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── À PROPOS ─── -->
+  <section id="apropos" class="apropos section">
+    <div class="container apropos-inner">
+      <div class="apropos-visual reveal">
+        <div class="apropos-img-wrap">
+          <div class="apropos-img-placeholder">
+            <span>EK</span>
+          </div>
+          <div class="apropos-badge">
+            <span class="badge-num">+50</span>
+            <span class="badge-label">Projets réalisés</span>
+          </div>
+        </div>
+      </div>
+      <div class="apropos-text reveal">
+        <span class="section-label">Qui suis-je ?</span>
+        <h2>Ekko Music</h2>
+        <p class="apropos-lead">
+          Compositeur et directeur sonore spécialisé dans les univers pop culture, gaming et esports.
+        </p>
+        <p>
+          Je crée de la musique qui marque les esprits — des compositions épiques pour les plus grands événements esports français jusqu'aux bandes originales d'albums. Chaque projet est une nouvelle aventure sonore, pensée pour émouvoir et captiver.
+        </p>
+        <p>
+          Collaborateur de Karmine Corp, ZeratoR, Galions et bien d'autres, je mets mon expertise au service des projets qui veulent frapper fort.
+        </p>
+        <div class="apropos-stats">
+          <div class="stat">
+            <span class="stat-num">+50</span>
+            <span class="stat-label">Projets</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">+10</span>
+            <span class="stat-label">Clients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Sur-mesure</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary">Travailler ensemble</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Parlons-en</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-inner">
+        <div class="contact-info reveal">
+          <h3>Un projet en tête ?</h3>
+          <p>Que ce soit pour un trailer, un événement ou une composition originale — je suis là pour donner vie à votre vision sonore.</p>
+          <a href="mailto:ekkomusicoff@gmail.com" class="contact-email">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+              <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            ekkomusicoff@gmail.com
+          </a>
+          <div class="contact-socials">
+            <a href="https://instagram.com/ekko_prod" target="_blank" rel="noopener" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+              @ekko_prod
+            </a>
+            <a href="https://x.com/Ekko_Twitch" target="_blank" rel="noopener" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                <path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              @Ekko_Twitch
+            </a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Votre nom</label>
+              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Votre email</label>
+              <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sujet">Sujet</label>
+            <select id="sujet" name="sujet">
+              <option value="">Choisissez un type de projet...</option>
+              <option value="trailer">Trailer / Teaser</option>
+              <option value="event">Événement live</option>
+              <option value="album">Album / EP</option>
+              <option value="direction">Direction sonore</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Décrivez votre projet</label>
+            <textarea id="message" name="message" rows="5" placeholder="Parlez-moi de votre projet, vos ambitions, votre calendrier..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full">
+            Envoyer le message
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="form-note">* Le formulaire ouvrira votre client mail. Vous pouvez aussi écrire directement à ekkomusicoff@gmail.com</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#accueil" class="footer-logo">EKKO<span>MUSIC</span></a>
+      <p class="footer-copy">© 2025 Ekko Music · Tous droits réservés</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/ekko_prod" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://x.com/Ekko_Twitch" target="_blank" rel="noopener" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+            <path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
