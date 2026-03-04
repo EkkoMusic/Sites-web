@@ -284,11 +284,27 @@ body.cursor-hover #cursor-ring {
   overflow: hidden;
   position: relative;
 }
+/* Image de fond dans la cover */
+.cover-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 13px;
+  z-index: 0;
+}
+.cover-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 50%, transparent 100%);
+  border-radius: 13px;
+  z-index: 1;
+}
+/* Shimmer sur les covers sans photo */
 .cover-inner::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(160deg, rgba(255,255,255,.05) 0%, transparent 60%);
   pointer-events: none;
+  z-index: 2;
 }
 
 .cover-art {
@@ -296,6 +312,7 @@ body.cursor-hover #cursor-ring {
   background: rgba(255,255,255,.08);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
 }
 .cover-art span {
   font-family: var(--font-h);
@@ -305,14 +322,16 @@ body.cursor-hover #cursor-ring {
 }
 .cover-title {
   font-size: .72rem; font-weight: 600;
-  color: rgba(255,255,255,.9);
+  color: rgba(255,255,255,.95);
   margin-top: auto;
   line-height: 1.3;
+  position: relative; z-index: 2;
 }
 .cover-sub {
   font-size: .6rem;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.55);
   margin-top: .15rem;
+  position: relative; z-index: 2;
 }
 
 /* Scroll indicator */
@@ -396,7 +415,15 @@ body.cursor-hover #cursor-ring {
   display: flex; align-items: center; justify-content: center;
   position: relative;
   overflow: hidden;
+  background: var(--surface);
 }
+.pcard-img img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.pcard:hover .pcard-img img { transform: scale(1.04); }
 .pcard-letters {
   font-family: var(--font-h);
   font-size: clamp(2rem,5vw,3.5rem);
