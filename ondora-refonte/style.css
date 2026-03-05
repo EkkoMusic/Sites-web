@@ -776,190 +776,245 @@ ul {
   background: var(--bg-1);
 }
 
-/* ── Grille projets ── */
+/* ── Grille 5 colonnes ── */
 .projets-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.85rem;
 }
 
-.projet-card {
-  border-radius: var(--radius-lg);
+/* ── Carte projet ── */
+.pj-card {
+  position: relative;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
+  background: #0c0c14;
 }
 
-/* Grande carte : 2 cols × 2 rows */
-.projet-card--large {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-/* Miniature YouTube en fond */
-.projet-thumb {
-  width: 100%;
-  height: 100%;
-  min-height: 220px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.projet-card--large .projet-thumb {
-  min-height: 460px;
-}
-
-/* Overlay sombre permanent + plus sombre au hover */
-.projet-thumb-overlay {
+/* Image de fond (thumbnail YouTube) */
+.pj-bg {
   position: absolute;
   inset: 0;
-  background: rgba(3, 3, 8, 0.45);
-  transition: background 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
 }
 
-.projet-card:hover .projet-thumb-overlay {
-  background: rgba(3, 3, 8, 0.22);
+.pj-card:hover .pj-bg {
+  transform: scale(1.06);
 }
 
-/* Bouton play */
-.projet-play {
-  position: relative;
-  z-index: 1;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
-}
-
-.projet-card--large .projet-play {
-  width: 70px;
-  height: 70px;
-}
-
-.projet-play svg {
-  width: 22px;
-  height: 22px;
-  margin-left: 3px;
-}
-
-.projet-card--large .projet-play svg {
-  width: 28px;
-  height: 28px;
-}
-
-.projet-card:hover .projet-play {
-  background: rgba(255,255,255,0.25);
-  border-color: #fff;
-  transform: scale(1.1);
-}
-
-/* Titre en bas de la carte */
-.projet-thumb-info {
+/* Gradient + titre en bas */
+.pj-label {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1rem 1.25rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
-  z-index: 1;
+  padding: 0.85rem 1rem 0.75rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+  z-index: 2;
 }
 
-.projet-thumb-info h3 {
-  font-size: 0.95rem;
+.pj-label h3 {
+  font-size: 0.82rem;
   font-weight: 700;
   color: #fff;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.projet-card--large .projet-thumb-info h3 {
-  font-size: 1.5rem;
+/* ── Crochets (brackets) aux 4 coins ── */
+.pj-br {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  z-index: 3;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
-/* ── Modal vidéo ── */
-.video-modal {
+.pj-br--tl {
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid rgba(255, 255, 255, 0.6);
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.pj-br--tr {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid rgba(255, 255, 255, 0.6);
+  border-right: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.pj-br--bl {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.pj-br--br {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  border-right: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Brackets s'éclaircissent au hover */
+.pj-card:hover .pj-br {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* ── Panel vidéo (overlay plein écran) ── */
+.pj-panel {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 9000;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
 }
 
-.video-modal.is-open {
-  opacity: 1;
+.pj-panel.is-open {
   pointer-events: all;
 }
 
-.video-modal-backdrop {
+.pj-panel-backdrop {
   position: absolute;
   inset: 0;
   background: rgba(3, 3, 8, 0.88);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
   cursor: pointer;
 }
 
-.video-modal-inner {
+.pj-panel.is-open .pj-panel-backdrop {
+  opacity: 1;
+}
+
+/* Boîte centrale du panel */
+.pj-panel-box {
   position: relative;
-  width: 90vw;
-  max-width: 960px;
+  width: 88vw;
+  max-width: 980px;
+  background: #0e0e18;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 1;
+  transform: scale(0.92);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
 }
 
-.video-modal-close {
-  position: absolute;
-  top: -44px;
-  right: 0;
-  width: 36px;
-  height: 36px;
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.7);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
+.pj-panel.is-open .pj-panel-box {
+  transform: scale(1);
+  opacity: 1;
 }
 
-.video-modal-close:hover {
-  color: #fff;
+/* Brackets du panel (plus grands, couleur accent) */
+.pj-panel-box .pj-br {
+  width: 24px;
+  height: 24px;
+  transition: none;
 }
 
-.video-modal-close svg {
-  width: 22px;
-  height: 22px;
+.pj-panel-box .pj-br--tl {
+  top: 14px;
+  left: 14px;
+  border-color: var(--purple-2);
 }
 
-.video-modal-frame {
+.pj-panel-box .pj-br--tr {
+  top: 14px;
+  right: 14px;
+  border-color: var(--purple-2);
+}
+
+.pj-panel-box .pj-br--bl {
+  bottom: 14px;
+  left: 14px;
+  border-color: var(--purple-2);
+}
+
+.pj-panel-box .pj-br--br {
+  bottom: 14px;
+  right: 14px;
+  border-color: var(--purple-2);
+}
+
+/* Layout interne : vidéo (3/5) + info (2/5) */
+.pj-panel-inner {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  min-height: 380px;
+}
+
+.pj-panel-video {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
   background: #000;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
 }
 
-.video-modal-frame iframe {
+.pj-panel-video iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.pj-panel-info {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pj-panel-info h3 {
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.pj-panel-info p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Bouton fermer */
+.pj-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  align-self: flex-start;
+}
+
+.pj-close:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+}
+
+.pj-close svg {
+  width: 14px;
+  height: 14px;
 }
 
 
@@ -1415,16 +1470,15 @@ ul {
   }
 
   .projets-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .projet-card--large {
-    grid-column: span 2;
-    grid-row: span 1;
+  .pj-panel-inner {
+    grid-template-columns: 1fr;
   }
 
-  .projet-card--large .projet-thumb {
-    min-height: 280px;
+  .pj-panel-video {
+    min-height: 260px;
   }
 
   .apropos-inner {
@@ -1469,12 +1523,7 @@ ul {
   }
 
   .projets-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projet-card--large {
-    grid-column: auto;
-    grid-row: auto;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .form-row {

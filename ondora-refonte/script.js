@@ -173,33 +173,61 @@ window.addEventListener('scroll', updateServicesTarget, { passive: true });
 updateServicesTarget();
 animateServicesCarousel();
 
-// ─── Modal vidéo projets ───
-const videoModal    = document.getElementById('videoModal');
-const videoIframe   = document.getElementById('videoModalIframe');
-const modalClose    = document.getElementById('videoModalClose');
-const modalBackdrop = document.getElementById('videoModalBackdrop');
+// ─── Projets — brackets inversion + panel vidéo ───
+const PJ_OFFSET = 10; // distance bracket / bord de la carte (px)
+const PJ_SIZE   = 16; // taille du bracket (px)
+let   pjActiveCard = null;
 
-function openVideoModal(videoId) {
-  videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-  videoModal.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
+function pjOpenProject(card) {
+  // Animer les brackets vers leurs coins inverses
+  const W  = card.offsetWidth;
+  const H  = card.offsetHeight;
+  const dx = W - 2 * PJ_OFFSET - PJ_SIZE;
+  const dy = H - 2 * PJ_OFFSET - PJ_SIZE;
+
+  card.querySelector('.pj-br--tl').style.transform = `translate(${dx}px, ${dy}px)`;
+  card.querySelector('.pj-br--tr').style.transform = `translate(-${dx}px, ${dy}px)`;
+  card.querySelector('.pj-br--bl').style.transform = `translate(${dx}px, -${dy}px)`;
+  card.querySelector('.pj-br--br').style.transform = `translate(-${dx}px, -${dy}px)`;
+
+  pjActiveCard = card;
+
+  // Ouvrir le panel après la mi-animation (250ms)
+  setTimeout(() => {
+    document.getElementById('pjTitle').textContent = card.dataset.title;
+    document.getElementById('pjDesc').textContent  = card.dataset.desc;
+    document.getElementById('pjIframe').src =
+      `https://www.youtube.com/embed/${card.dataset.video}?autoplay=1&rel=0`;
+    document.getElementById('pjPanel').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }, 250);
 }
 
-function closeVideoModal() {
-  videoModal.classList.remove('is-open');
-  videoIframe.src = '';
+function pjCloseProject() {
+  // Remettre les brackets à leur position initiale
+  if (pjActiveCard) {
+    pjActiveCard.querySelectorAll('.pj-br').forEach(br => {
+      br.style.transform = '';
+    });
+    pjActiveCard = null;
+  }
+  document.getElementById('pjPanel').classList.remove('is-open');
+  document.getElementById('pjIframe').src = '';
   document.body.style.overflow = '';
 }
 
-document.querySelectorAll('.projet-card[data-video]').forEach(card => {
-  card.addEventListener('click', () => openVideoModal(card.dataset.video));
+// Clic sur une carte
+document.querySelectorAll('.pj-card').forEach(card => {
+  card.addEventListener('click', () => pjOpenProject(card));
 });
 
-if (modalClose)    modalClose.addEventListener('click', closeVideoModal);
-if (modalBackdrop) modalBackdrop.addEventListener('click', closeVideoModal);
-
+// Fermeture
+const pjClose    = document.getElementById('pjClose');
+const pjBackdrop = document.getElementById('pjPanelBackdrop');
+if (pjClose)    pjClose.addEventListener('click',   pjCloseProject);
+if (pjBackdrop) pjBackdrop.addEventListener('click', pjCloseProject);
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeVideoModal();
+  if (e.key === 'Escape') pjCloseProject();
 });
 
 // ─── Contact form ───
