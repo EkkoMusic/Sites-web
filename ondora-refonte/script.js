@@ -110,6 +110,50 @@ if (heroEl && albumsInner) {
   animateTilt();
 }
 
+// ─── Services scroll-driven carousel ───
+const servicesScrollZone  = document.getElementById('servicesScrollZone');
+const servicesTrack       = document.getElementById('servicesCarouselTrack');
+const servicesDots        = document.querySelectorAll('.services-dot');
+const servicesProgressFill = document.getElementById('servicesProgressFill');
+const TOTAL_SLIDES = 8;
+let currentServiceSlide = -1;
+
+function setServiceSlide(index) {
+  if (index === currentServiceSlide) return;
+  currentServiceSlide = index;
+  if (servicesTrack) {
+    servicesTrack.style.transform = `translateX(-${index * 100}%)`;
+  }
+  servicesDots.forEach((d, i) => d.classList.toggle('active', i === index));
+  if (servicesProgressFill) {
+    servicesProgressFill.style.width = `${((index + 1) / TOTAL_SLIDES) * 100}%`;
+  }
+}
+
+function updateServicesCarousel() {
+  if (!servicesScrollZone) return;
+  const rect      = servicesScrollZone.getBoundingClientRect();
+  const zoneH     = servicesScrollZone.offsetHeight;
+  const vh        = window.innerHeight;
+  const scrolled  = -rect.top;          // pixels scrollés dans la zone
+  const maxScroll = zoneH - vh;         // scroll total disponible
+
+  if (scrolled <= 0) {
+    setServiceSlide(0);
+  } else if (scrolled >= maxScroll) {
+    setServiceSlide(TOTAL_SLIDES - 1);
+  } else {
+    const slide = Math.min(
+      Math.floor((scrolled / maxScroll) * TOTAL_SLIDES),
+      TOTAL_SLIDES - 1
+    );
+    setServiceSlide(slide);
+  }
+}
+
+window.addEventListener('scroll', updateServicesCarousel, { passive: true });
+updateServicesCarousel();
+
 // ─── Contact form ───
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
