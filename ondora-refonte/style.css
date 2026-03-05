@@ -1018,6 +1018,47 @@ ul {
 }
 
 
+/* ── Bandeau partenaires (défilé infini) ── */
+.partenaires {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.partenaires-track {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  width: max-content;
+  animation: partnersScroll 28s linear infinite;
+}
+
+.partenaires-track:hover {
+  animation-play-state: paused;
+}
+
+.partenaires-track img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.partenaires-track img:hover {
+  opacity: 1;
+}
+
+@keyframes partnersScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* ═══════════════════════════════════════════════════════
    À PROPOS
    ═══════════════════════════════════════════════════════ */
