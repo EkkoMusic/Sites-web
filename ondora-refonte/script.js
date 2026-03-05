@@ -254,8 +254,8 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
   // ── Caméra viewport ──
   const threeCamera = new THREE.PerspectiveCamera(40, W / H, 0.1, 100);
-  // Angle 3/4 avant-droit légèrement en hauteur, comme l'image de référence
-  threeCamera.position.set(3.8, 2.8, 4.5);
+  // Angle 3/4 avant-gauche légèrement en hauteur (objectif vers le viewer)
+  threeCamera.position.set(-3.0, 2.5, 5.0);
   threeCamera.lookAt(0, 0.3, 0);
 
   // ── Lumières studio ──
@@ -393,9 +393,9 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           metalness: 0.55,
         }));
         mesh.scale.setScalar(scale);
-        // Réorientation STL : corps droit, objectif vers le bas-gauche
-        // Z-up → Y-up (-PI/2 sur X), puis rotation Y pour angle 3/4 référence
-        mesh.rotation.set(-Math.PI / 2, 0, -Math.PI * 0.2);
+        // Z-up → Y-up via X (-PI/2), puis yaw sur Y pour pointer vers le carousel
+        // Y rotation = direction, pas de Z rotation = pas de roll (corps droit)
+        mesh.rotation.set(-Math.PI / 2, Math.PI * 0.85, 0);
         cameraGroup.add(mesh);
         canvas.classList.add('loaded');
       },
