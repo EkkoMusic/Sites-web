@@ -233,7 +233,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const canvas = document.getElementById('cameraCanvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
-  const W = 280, H = 210;
+  const W = 360, H = 270;
   canvas.width  = W * window.devicePixelRatio;
   canvas.height = H * window.devicePixelRatio;
   canvas.style.width  = W + 'px';
@@ -253,9 +253,9 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const scene = new THREE.Scene();
 
   // ── Caméra viewport ──
-  const threeCamera = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
-  threeCamera.position.set(-3.2, 1.8, 5.5);
-  threeCamera.lookAt(0, 0.2, 0);
+  const threeCamera = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
+  threeCamera.position.set(3.5, 2.2, 5.0);
+  threeCamera.lookAt(0, 0, 0);
 
   // ── Lumières studio ──
 
@@ -398,6 +398,9 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           metalness: 0.55,
         }));
         mesh.scale.setScalar(scale);
+        // Réorienter le STL : objectif vers la droite (vers le carousel)
+        // Les STL CAD ont souvent Z vers le haut et l'avant vers +X ou -Y
+        mesh.rotation.set(-Math.PI / 2, 0, Math.PI * 0.85);
         cameraGroup.add(mesh);
         canvas.classList.add('loaded');
       },

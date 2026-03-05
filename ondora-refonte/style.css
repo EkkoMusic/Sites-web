@@ -590,10 +590,10 @@ ul {
 /* Canvas caméra 3D — coin supérieur gauche */
 .camera-canvas {
   position: absolute;
-  top: 1.75rem;
-  left: 1.75rem;
-  width: 280px;
-  height: 210px;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 360px;
+  height: 270px;
   pointer-events: none;
   z-index: 5;
   opacity: 0;
