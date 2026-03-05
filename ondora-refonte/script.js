@@ -378,7 +378,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   if (typeof THREE.STLLoader !== 'undefined') {
     const loader = new THREE.STLLoader();
     loader.load(
-      './images/camera.stl',
+      './images/uploads_files_2562591_PXW-X160.STL',
       (geometry) => {
         geometry.computeVertexNormals();
         // Centrer et normaliser la taille du STL
