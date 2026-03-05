@@ -355,41 +355,38 @@ ul {
   letter-spacing: -0.04em;
 }
 
-/* ── Grille albums en perspective (pleine largeur) ── */
+/* ── Bandeau pochettes diagonal (pleine largeur) ── */
 .hero-albums-outer {
   position: relative;
   z-index: 1;
   width: 100%;
   overflow: hidden;
-  padding: 0.5rem 0;
+  padding: 5rem 0;
 }
 
 .hero-albums-inner {
-  transform: perspective(900px) rotateX(22deg);
+  transform: rotate(-7deg) perspective(1400px);
   transform-origin: center center;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 0.75rem 0;
+  gap: 0;
+  padding: 0;
+  will-change: transform;
 }
 
 .albums-row {
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
 }
 
 .albums-track {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   width: max-content;
 }
 
 .albums-track--left {
-  animation: albumsLeft 30s linear infinite;
-}
-
-.albums-track--right {
-  animation: albumsRight 26s linear infinite;
+  animation: albumsLeft 36s linear infinite;
 }
 
 @keyframes albumsLeft {
@@ -397,19 +394,14 @@ ul {
   100% { transform: translateX(-50%); }
 }
 
-@keyframes albumsRight {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
 .album-thumb {
   flex-shrink: 0;
-  width: 160px;
-  height: 160px;
-  border-radius: 12px;
+  width: 240px;
+  height: 240px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.07);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.65);
 }
 
 .album-thumb img {
@@ -419,7 +411,7 @@ ul {
   display: block;
 }
 
-/* Dégradés de masque sur les bords */
+/* Dégradés de masque gauche / droite */
 .albums-overlay {
   position: absolute;
   pointer-events: none;
@@ -428,26 +420,14 @@ ul {
 
 .albums-overlay--left {
   top: 0; bottom: 0; left: 0;
-  width: 240px;
-  background: linear-gradient(to right, var(--bg-0) 30%, transparent);
+  width: 280px;
+  background: linear-gradient(to right, var(--bg-0) 20%, transparent);
 }
 
 .albums-overlay--right {
   top: 0; bottom: 0; right: 0;
-  width: 240px;
-  background: linear-gradient(to left, var(--bg-0) 30%, transparent);
-}
-
-.albums-overlay--top {
-  top: 0; left: 0; right: 0;
-  height: 110px;
-  background: linear-gradient(to bottom, var(--bg-0), transparent);
-}
-
-.albums-overlay--bottom {
-  bottom: 0; left: 0; right: 0;
-  height: 130px;
-  background: linear-gradient(to top, var(--bg-0), transparent);
+  width: 280px;
+  background: linear-gradient(to left, var(--bg-0) 20%, transparent);
 }
 
 /* ── Bloc desc + CTA (bas du hero) ── */

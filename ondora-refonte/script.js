@@ -72,28 +72,43 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// ─── 3D album tilt on hover ───
-document.querySelectorAll('.album-card').forEach(card => {
-  const inner = card.querySelector('.album-inner');
+// ─── Effet perspective souris sur le bandeau diagonal ───
+const heroEl = document.querySelector('.hero');
+const albumsInner = document.getElementById('heroAlbumsInner');
 
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -8;
-    const rotateY = ((x - centerX) / centerX) * 12;
+let targetTiltX = 0, targetTiltY = 0;
+let currentTiltX = 0, currentTiltY = 0;
+let tiltRafId = null;
 
-    inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-    inner.style.transition = 'transform 0.1s ease';
+if (heroEl && albumsInner) {
+  heroEl.addEventListener('mousemove', (e) => {
+    const rect = heroEl.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    // Normalise entre -1 et +1
+    const nx = (e.clientX - rect.left - cx) / cx;
+    const ny = (e.clientY - rect.top - cy) / cy;
+    targetTiltX = ny * -3;   // rotateX : ±3°
+    targetTiltY = nx * 4;    // rotateY : ±4°
+  }, { passive: true });
+
+  heroEl.addEventListener('mouseleave', () => {
+    targetTiltX = 0;
+    targetTiltY = 0;
   });
 
-  card.addEventListener('mouseleave', () => {
-    inner.style.transform = 'rotateY(-8deg) rotateX(3deg)';
-    inner.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
-  });
-});
+  function animateTilt() {
+    // Lerp pour un mouvement fluide et retardé
+    currentTiltX += (targetTiltX - currentTiltX) * 0.07;
+    currentTiltY += (targetTiltY - currentTiltY) * 0.07;
+
+    albumsInner.style.transform =
+      `rotate(-7deg) perspective(1400px) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg)`;
+
+    tiltRafId = requestAnimationFrame(animateTilt);
+  }
+  animateTilt();
+}
 
 // ─── Contact form ───
 const contactForm = document.getElementById('contactForm');
