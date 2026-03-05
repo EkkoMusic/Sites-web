@@ -110,6 +110,38 @@ if (heroEl && albumsInner) {
   animateTilt();
 }
 
+// ─── Effet tilt 3D sur le bloc photo À propos ───
+const aproposVisual = document.querySelector('.apropos-visual');
+const aproposTilt   = document.getElementById('aproposTilt');
+
+let apTargetX = 0, apTargetY = 0;
+let apCurrentX = 0, apCurrentY = 0;
+let apRafId = null;
+
+if (aproposVisual && aproposTilt) {
+  aproposVisual.addEventListener('mousemove', (e) => {
+    const rect = aproposVisual.getBoundingClientRect();
+    const nx = (e.clientX - rect.left  - rect.width  / 2) / (rect.width  / 2);
+    const ny = (e.clientY - rect.top   - rect.height / 2) / (rect.height / 2);
+    apTargetX = ny * -5;   // rotateX ±5°
+    apTargetY = nx *  6;   // rotateY ±6°
+  }, { passive: true });
+
+  aproposVisual.addEventListener('mouseleave', () => {
+    apTargetX = 0;
+    apTargetY = 0;
+  });
+
+  function animateAproposTilt() {
+    apCurrentX += (apTargetX - apCurrentX) * 0.07;
+    apCurrentY += (apTargetY - apCurrentY) * 0.07;
+    aproposTilt.style.transform =
+      `perspective(1200px) rotateX(${apCurrentX}deg) rotateY(${apCurrentY}deg)`;
+    apRafId = requestAnimationFrame(animateAproposTilt);
+  }
+  animateAproposTilt();
+}
+
 // ─── Services — carousel vertical style Resort Kaskady ───
 const servicesScrollZone = document.getElementById('servicesScrollZone');
 const svcCards           = document.querySelectorAll('.svc-card');

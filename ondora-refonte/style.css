@@ -1078,11 +1078,19 @@ ul {
   position: relative;
 }
 
+.apropos-visual-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.08s linear;
+  will-change: transform;
+  position: relative;
+}
+
 .apropos-img-wrap {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
   aspect-ratio: 3/4;
+  transform: translateZ(0px);
 }
 
 .apropos-img-wrap img {
@@ -1111,6 +1119,7 @@ ul {
   gap: 0.75rem;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   animation: floatCard 6s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
 .floating-card--2 {
@@ -1129,8 +1138,8 @@ ul {
 }
 
 @keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%, 100% { transform: translateY(0) translateZ(28px); }
+  50% { transform: translateY(-8px) translateZ(28px); }
 }
 
 .floating-card-icon {
