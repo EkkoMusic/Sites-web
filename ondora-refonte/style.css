@@ -174,7 +174,9 @@ ul {
   right: 0;
   z-index: 1000;
   padding: 1.5rem 0;
-  transition: all 0.4s ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
 }
 
 .navbar.scrolled {
