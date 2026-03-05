@@ -193,10 +193,21 @@ ul {
   gap: 2rem;
 }
 
+/* Crop le logo pour ne montrer que le cercle (sans le texte "ONDORA PRODUCTIONS") */
+.nav-logo {
+  overflow: hidden;
+  height: 38px;
+  display: inline-flex;
+  align-items: flex-start;
+}
+
 .nav-logo img {
-  height: 40px;
+  height: 64px;
   width: auto;
   object-fit: contain;
+  object-position: top center;
+  display: block;
+  flex-shrink: 0;
 }
 
 .nav-links {
