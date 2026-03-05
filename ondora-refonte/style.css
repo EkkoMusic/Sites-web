@@ -558,6 +558,57 @@ ul {
   align-items: center;
 }
 
+/* Spot studio overhead — faisceau chaud venant du plafond */
+.services::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 75%;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(255, 244, 215, 0.055) 0%,
+    rgba(255, 220, 130, 0.025) 35%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vignette sur les bords — scène de studio */
+.services::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, transparent 38%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Canvas caméra 3D — coin supérieur gauche */
+.camera-canvas {
+  position: absolute;
+  top: 1.75rem;
+  left: 1.75rem;
+  width: 280px;
+  height: 210px;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.camera-canvas.loaded {
+  opacity: 1;
+}
+
+/* S'assurer que services-inner passe au-dessus des pseudo-éléments */
+.services-inner {
+  position: relative;
+  z-index: 2;
+}
+
 .services-inner {
   width: 100%;
   max-width: 1280px;
@@ -676,17 +727,38 @@ ul {
   width: 180px;
   height: 180px;
   border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(236,72,153,0.1));
-  border: 1px solid rgba(124,58,237,0.25);
+  background: linear-gradient(135deg, rgba(124,58,237,0.22), rgba(236,72,153,0.12));
+  border: 1px solid rgba(124,58,237,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Halo studio : lumière latérale depuis la caméra */
+  box-shadow:
+    0 0 60px rgba(124, 58, 237, 0.18),
+    0 0 120px rgba(124, 58, 237, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  position: relative;
+}
+
+/* Reflet "spotlighting" au sommet de l'icône */
+.service-slide-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 40%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,244,215,0.12) 0%, transparent 70%);
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .service-slide-icon svg {
   width: 72px;
   height: 72px;
   color: var(--purple-2);
+  filter: drop-shadow(0 0 8px rgba(159,103,250,0.5));
 }
 
 /* Progression */
