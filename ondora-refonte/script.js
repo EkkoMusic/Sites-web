@@ -173,6 +173,35 @@ window.addEventListener('scroll', updateServicesTarget, { passive: true });
 updateServicesTarget();
 animateServicesCarousel();
 
+// ─── Modal vidéo projets ───
+const videoModal    = document.getElementById('videoModal');
+const videoIframe   = document.getElementById('videoModalIframe');
+const modalClose    = document.getElementById('videoModalClose');
+const modalBackdrop = document.getElementById('videoModalBackdrop');
+
+function openVideoModal(videoId) {
+  videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  videoModal.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+  videoModal.classList.remove('is-open');
+  videoIframe.src = '';
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.projet-card[data-video]').forEach(card => {
+  card.addEventListener('click', () => openVideoModal(card.dataset.video));
+});
+
+if (modalClose)    modalClose.addEventListener('click', closeVideoModal);
+if (modalBackdrop) modalBackdrop.addEventListener('click', closeVideoModal);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeVideoModal();
+});
+
 // ─── Contact form ───
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
