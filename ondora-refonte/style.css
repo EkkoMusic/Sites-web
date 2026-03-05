@@ -1118,8 +1118,8 @@ ul {
   animation-duration: 7s;
 }
 
-.floating-card:first-of-type {
-  bottom: 20px;
+.floating-card:not(.floating-card--2) {
+  bottom: 30px;
   right: -20px;
 }
 
