@@ -122,106 +122,82 @@
   <!-- Zone de scroll : 4 × 100vh pour 3 slides -->
   <div class="services-scroll-zone" id="servicesScrollZone">
     <section class="services" id="services">
-      <div class="services-inner">
 
-        <!-- En-tête fixe -->
-        <div class="services-header">
-          <span class="section-tag">Ce qu'on fait</span>
-          <h2 class="section-title">Accompagnement<br /><span class="gradient-text">intégral</span></h2>
-        </div>
+      <!-- Fond plein écran (image de studio) -->
+      <div class="services-bg">
+        <img src="images/F9rgp9OW8AASeur.jfif" alt="Studio Ondora"
+             onerror="this.src='images/ekko-studio.png'" />
+      </div>
 
-        <!-- Carousel luxury -->
-        <div class="services-carousel-wrap">
-          <div class="services-carousel-track" id="servicesCarouselTrack">
+      <!-- Texte fantôme — nom de la section courante -->
+      <div class="services-ghost" id="servicesGhost">Post-Production</div>
 
-            <!-- Slide 01 — Post-Production -->
-            <div class="service-slide">
-              <span class="slide-bg-num" aria-hidden="true">01</span>
-              <div class="service-slide-text">
-                <div class="service-slide-num">01 / 03</div>
-                <h3 class="service-slide-title">Post-<br />Production</h3>
-                <p class="service-slide-desc">Mixage, mastering et finalisation sonore. Chaque fréquence travaillée pour un résultat professionnel et immersif.</p>
-                <div class="service-slide-tags">
-                  <span>Mixage Audio</span>
-                  <span>Mastering</span>
-                  <span>Sound Design</span>
-                  <span>Montage Son</span>
-                  <span>Voix off &amp; Bruitage</span>
-                </div>
-              </div>
-              <div class="service-slide-visual">
-                <div class="service-slide-card">
-                  <img src="images/OndoraPochette5.jpg" alt="Post-Production" />
-                </div>
-              </div>
+      <!-- Cartes verticales -->
+      <div class="svc-cards-wrap">
+
+        <!-- Carte 01 — Post-Production -->
+        <article class="svc-card">
+          <div class="svc-card-frame">
+            <span class="svc-card-num">01 / 03</span>
+            <h3 class="svc-card-title">Post-Production</h3>
+            <p class="svc-card-desc">Mixage, mastering et finalisation sonore. Chaque fréquence travaillée pour un résultat professionnel et immersif.</p>
+            <div class="svc-card-tags">
+              <span>Mixage Audio</span>
+              <span>Mastering</span>
+              <span>Sound Design</span>
+              <span>Montage Son</span>
             </div>
+            <a href="#contact" class="svc-card-btn">En savoir plus</a>
+          </div>
+        </article>
 
-            <!-- Slide 02 — Composition -->
-            <div class="service-slide">
-              <span class="slide-bg-num" aria-hidden="true">02</span>
-              <div class="service-slide-text">
-                <div class="service-slide-num">02 / 03</div>
-                <h3 class="service-slide-title">Compo-<br />sition</h3>
-                <p class="service-slide-desc">Musiques originales, arrangements et création sonore au service de vos projets visuels ou auditifs.</p>
-                <div class="service-slide-tags">
-                  <span>Composition originale</span>
-                  <span>Musique à l'Image</span>
-                  <span>Arrangements</span>
-                  <span>Orchestration</span>
-                </div>
-              </div>
-              <div class="service-slide-visual">
-                <div class="service-slide-card">
-                  <img src="images/OndoraPochette7.png" alt="Composition" />
-                </div>
-              </div>
+        <!-- Carte 02 — Composition -->
+        <article class="svc-card">
+          <div class="svc-card-frame">
+            <span class="svc-card-num">02 / 03</span>
+            <h3 class="svc-card-title">Composition</h3>
+            <p class="svc-card-desc">Musiques originales, arrangements et création sonore au service de vos projets visuels ou auditifs.</p>
+            <div class="svc-card-tags">
+              <span>Composition originale</span>
+              <span>Musique à l'Image</span>
+              <span>Arrangements</span>
+              <span>Orchestration</span>
             </div>
+            <a href="#contact" class="svc-card-btn">En savoir plus</a>
+          </div>
+        </article>
 
-            <!-- Slide 03 — Enregistrement -->
-            <div class="service-slide">
-              <span class="slide-bg-num" aria-hidden="true">03</span>
-              <div class="service-slide-text">
-                <div class="service-slide-num">03 / 03</div>
-                <h3 class="service-slide-title">Enregis-<br />trement</h3>
-                <p class="service-slide-desc">Prises de son de qualité studio dans nos espaces acoustiques traités — Tours &amp; Saint-Brieuc.</p>
-                <div class="service-slide-tags">
-                  <span>Prise de son</span>
-                  <span>Direction artistique</span>
-                  <span>Studio Tours</span>
-                  <span>Studio Saint-Brieuc</span>
-                </div>
-              </div>
-              <div class="service-slide-visual">
-                <div class="service-slide-card">
-                  <img src="images/ekko-studio.png" alt="Enregistrement" />
-                </div>
-              </div>
+        <!-- Carte 03 — Enregistrement -->
+        <article class="svc-card">
+          <div class="svc-card-frame">
+            <span class="svc-card-num">03 / 03</span>
+            <h3 class="svc-card-title">Enregistrement</h3>
+            <p class="svc-card-desc">Prises de son de qualité studio dans nos espaces acoustiques traités — Tours &amp; Saint-Brieuc.</p>
+            <div class="svc-card-tags">
+              <span>Prise de son</span>
+              <span>Direction artistique</span>
+              <span>Studio Tours</span>
+              <span>Studio Saint-Brieuc</span>
             </div>
-
-          </div><!-- /.services-carousel-track -->
-        </div><!-- /.services-carousel-wrap -->
-
-        <!-- Indice visuel de scroll -->
-        <div class="services-scroll-hint" id="servicesScrollHint">
-          <span class="services-scroll-hint-text">Défiler pour découvrir</span>
-          <div class="services-scroll-hint-mouse">
-            <div class="services-scroll-hint-wheel"></div>
+            <a href="#contact" class="svc-card-btn">En savoir plus</a>
           </div>
-        </div>
+        </article>
 
-        <!-- Barre de progression -->
-        <div class="services-progress">
-          <div class="services-dots" id="servicesDots">
-            <span class="services-dot active"></span>
-            <span class="services-dot"></span>
-            <span class="services-dot"></span>
-          </div>
-          <div class="services-progress-bar">
-            <div class="services-progress-fill" id="servicesProgressFill"></div>
-          </div>
-        </div>
+      </div><!-- /.svc-cards-wrap -->
 
-      </div><!-- /.services-inner -->
+      <!-- Dots de navigation -->
+      <div class="svc-nav-dots">
+        <span class="svc-dot active"></span>
+        <span class="svc-dot"></span>
+        <span class="svc-dot"></span>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="svc-scroll-hint" id="svcScrollHint">
+        <span>Défiler</span>
+        <div class="svc-scroll-hint-line"></div>
+      </div>
+
     </section>
   </div><!-- /.services-scroll-zone -->
 

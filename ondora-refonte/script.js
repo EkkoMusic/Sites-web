@@ -110,16 +110,17 @@ if (heroEl && albumsInner) {
   animateTilt();
 }
 
-// ─── Services scroll-driven carousel (continu + lerp) ───
-const servicesScrollZone   = document.getElementById('servicesScrollZone');
-const servicesTrack        = document.getElementById('servicesCarouselTrack');
-const servicesDots         = document.querySelectorAll('.services-dot');
-const servicesProgressFill = document.getElementById('servicesProgressFill');
-const servicesScrollHint   = document.getElementById('servicesScrollHint');
-const TOTAL_SLIDES = 3;
+// ─── Services — carousel vertical style Resort Kaskady ───
+const servicesScrollZone = document.getElementById('servicesScrollZone');
+const svcCards           = document.querySelectorAll('.svc-card');
+const svcDots            = document.querySelectorAll('.svc-dot');
+const servicesGhostEl    = document.getElementById('servicesGhost');
+const svcScrollHintEl    = document.getElementById('svcScrollHint');
+const TOTAL_SLIDES       = 3;
+const SLIDE_NAMES        = ['Post-Production', 'Composition', 'Enregistrement'];
 
-let svcTargetOffset  = 0;   // offset cible en % (0 → 700)
-let svcCurrentOffset = 0;   // offset affiché (lerp)
+let svcTargetOffset  = 0;
+let svcCurrentOffset = 0;
 let svcActiveDot     = -1;
 
 function updateServicesTarget() {
@@ -131,33 +132,37 @@ function updateServicesTarget() {
   const maxScroll = zoneH - vh;
   const progress  = Math.min(1, scrolled / maxScroll);
 
-  // Offset continu : 0% → 700% (7 transitions pour 8 slides)
   svcTargetOffset = progress * (TOTAL_SLIDES - 1) * 100;
 
-  // Scroll hint : disparaît dès qu'on commence à scroller dans la zone
-  if (servicesScrollHint) {
-    servicesScrollHint.style.opacity = scrolled > 40 ? '0' : '1';
+  // Scroll hint : disparaît dès qu'on entre dans la zone
+  if (svcScrollHintEl) {
+    svcScrollHintEl.style.opacity = scrolled > 40 ? '0' : '1';
   }
 }
 
 function animateServicesCarousel() {
-  // Lerp fluide vers la cible (coeff 0.08 = suivi rapide mais doux)
   svcCurrentOffset += (svcTargetOffset - svcCurrentOffset) * 0.08;
 
-  if (servicesTrack) {
-    servicesTrack.style.transform = `translateX(-${svcCurrentOffset.toFixed(3)}%)`;
-  }
+  // Positionnement vertical de chaque carte (en vh)
+  const scrollFrac = svcCurrentOffset / 100;
+  svcCards.forEach((card, i) => {
+    const yVh = (i - scrollFrac) * 100;
+    card.style.transform = `translateY(${yVh}vh)`;
+  });
 
-  // Mise à jour dot actif (arrondi le plus proche)
-  const dotIndex = Math.min(
-    Math.round(svcCurrentOffset / 100),
-    TOTAL_SLIDES - 1
-  );
+  // Slide active (dot + texte fantôme)
+  const dotIndex = Math.min(Math.round(scrollFrac), TOTAL_SLIDES - 1);
   if (dotIndex !== svcActiveDot) {
     svcActiveDot = dotIndex;
-    servicesDots.forEach((d, i) => d.classList.toggle('active', i === dotIndex));
-    if (servicesProgressFill) {
-      servicesProgressFill.style.width = `${((dotIndex + 1) / TOTAL_SLIDES) * 100}%`;
+    svcDots.forEach((d, i) => d.classList.toggle('active', i === dotIndex));
+
+    // Fondu du texte fantôme
+    if (servicesGhostEl) {
+      servicesGhostEl.style.opacity = '0';
+      setTimeout(() => {
+        servicesGhostEl.textContent = SLIDE_NAMES[dotIndex];
+        servicesGhostEl.style.opacity = '1';
+      }, 200);
     }
   }
 
