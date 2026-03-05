@@ -253,9 +253,10 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const scene = new THREE.Scene();
 
   // ── Caméra viewport ──
-  const threeCamera = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
-  threeCamera.position.set(3.5, 2.2, 5.0);
-  threeCamera.lookAt(0, 0, 0);
+  const threeCamera = new THREE.PerspectiveCamera(40, W / H, 0.1, 100);
+  // Angle 3/4 avant-droit légèrement en hauteur, comme l'image de référence
+  threeCamera.position.set(3.8, 2.8, 4.5);
+  threeCamera.lookAt(0, 0.3, 0);
 
   // ── Lumières studio ──
 
@@ -283,12 +284,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   // Point de lumière orbitant autour du modèle (effet "halo de studio")
   const orbitLight = new THREE.PointLight(0x9b5cf6, 4, 8);
   scene.add(orbitLight);
-  // Petite sphère visible pour matérialiser la lumière
-  const orbitLightViz = new THREE.Mesh(
-    new THREE.SphereGeometry(0.06, 8, 8),
-    new THREE.MeshBasicMaterial({ color: 0xc084fc })
-  );
-  scene.add(orbitLightViz);
 
   // ── Modèle procédural de caméra broadcast (PXW-X160) ──
   function buildProceduralCamera() {
@@ -398,9 +393,9 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           metalness: 0.55,
         }));
         mesh.scale.setScalar(scale);
-        // Réorienter le STL : objectif vers la droite (vers le carousel)
-        // Les STL CAD ont souvent Z vers le haut et l'avant vers +X ou -Y
-        mesh.rotation.set(-Math.PI / 2, 0, Math.PI * 0.85);
+        // Réorientation STL : corps droit, objectif vers le bas-gauche
+        // Z-up → Y-up (-PI/2 sur X), puis rotation Y pour angle 3/4 référence
+        mesh.rotation.set(-Math.PI / 2, 0, -Math.PI * 0.2);
         cameraGroup.add(mesh);
         canvas.classList.add('loaded');
       },
@@ -449,7 +444,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       Math.cos(t * 0.3)  * 1.8 + 1.2,
       Math.sin(t * 0.7)  * 2.8
     );
-    orbitLightViz.position.copy(orbitLight.position);
     // Pulsation de l'intensité
     orbitLight.intensity = 3.5 + Math.sin(t * 1.2) * 1.0;
 
