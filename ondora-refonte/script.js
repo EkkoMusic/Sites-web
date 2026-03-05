@@ -110,49 +110,63 @@ if (heroEl && albumsInner) {
   animateTilt();
 }
 
-// ─── Services scroll-driven carousel ───
-const servicesScrollZone  = document.getElementById('servicesScrollZone');
-const servicesTrack       = document.getElementById('servicesCarouselTrack');
-const servicesDots        = document.querySelectorAll('.services-dot');
+// ─── Services scroll-driven carousel (continu + lerp) ───
+const servicesScrollZone   = document.getElementById('servicesScrollZone');
+const servicesTrack        = document.getElementById('servicesCarouselTrack');
+const servicesDots         = document.querySelectorAll('.services-dot');
 const servicesProgressFill = document.getElementById('servicesProgressFill');
+const servicesScrollHint   = document.getElementById('servicesScrollHint');
 const TOTAL_SLIDES = 8;
-let currentServiceSlide = -1;
 
-function setServiceSlide(index) {
-  if (index === currentServiceSlide) return;
-  currentServiceSlide = index;
-  if (servicesTrack) {
-    servicesTrack.style.transform = `translateX(-${index * 100}%)`;
-  }
-  servicesDots.forEach((d, i) => d.classList.toggle('active', i === index));
-  if (servicesProgressFill) {
-    servicesProgressFill.style.width = `${((index + 1) / TOTAL_SLIDES) * 100}%`;
-  }
-}
+let svcTargetOffset  = 0;   // offset cible en % (0 → 700)
+let svcCurrentOffset = 0;   // offset affiché (lerp)
+let svcActiveDot     = -1;
 
-function updateServicesCarousel() {
+function updateServicesTarget() {
   if (!servicesScrollZone) return;
   const rect      = servicesScrollZone.getBoundingClientRect();
   const zoneH     = servicesScrollZone.offsetHeight;
   const vh        = window.innerHeight;
-  const scrolled  = -rect.top;          // pixels scrollés dans la zone
-  const maxScroll = zoneH - vh;         // scroll total disponible
+  const scrolled  = Math.max(0, -rect.top);
+  const maxScroll = zoneH - vh;
+  const progress  = Math.min(1, scrolled / maxScroll);
 
-  if (scrolled <= 0) {
-    setServiceSlide(0);
-  } else if (scrolled >= maxScroll) {
-    setServiceSlide(TOTAL_SLIDES - 1);
-  } else {
-    const slide = Math.min(
-      Math.floor((scrolled / maxScroll) * TOTAL_SLIDES),
-      TOTAL_SLIDES - 1
-    );
-    setServiceSlide(slide);
+  // Offset continu : 0% → 700% (7 transitions pour 8 slides)
+  svcTargetOffset = progress * (TOTAL_SLIDES - 1) * 100;
+
+  // Scroll hint : disparaît dès qu'on commence à scroller dans la zone
+  if (servicesScrollHint) {
+    servicesScrollHint.style.opacity = scrolled > 40 ? '0' : '1';
   }
 }
 
-window.addEventListener('scroll', updateServicesCarousel, { passive: true });
-updateServicesCarousel();
+function animateServicesCarousel() {
+  // Lerp fluide vers la cible (coeff 0.08 = suivi rapide mais doux)
+  svcCurrentOffset += (svcTargetOffset - svcCurrentOffset) * 0.08;
+
+  if (servicesTrack) {
+    servicesTrack.style.transform = `translateX(-${svcCurrentOffset.toFixed(3)}%)`;
+  }
+
+  // Mise à jour dot actif (arrondi le plus proche)
+  const dotIndex = Math.min(
+    Math.round(svcCurrentOffset / 100),
+    TOTAL_SLIDES - 1
+  );
+  if (dotIndex !== svcActiveDot) {
+    svcActiveDot = dotIndex;
+    servicesDots.forEach((d, i) => d.classList.toggle('active', i === dotIndex));
+    if (servicesProgressFill) {
+      servicesProgressFill.style.width = `${((dotIndex + 1) / TOTAL_SLIDES) * 100}%`;
+    }
+  }
+
+  requestAnimationFrame(animateServicesCarousel);
+}
+
+window.addEventListener('scroll', updateServicesTarget, { passive: true });
+updateServicesTarget();
+animateServicesCarousel();
 
 // ─── Contact form ───
 const contactForm = document.getElementById('contactForm');

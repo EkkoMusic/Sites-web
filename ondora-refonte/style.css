@@ -586,8 +586,51 @@ ul {
 
 .services-carousel-track {
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
+  /* Pas de transition CSS — le lerp JS assure un suivi fluide du scroll */
+}
+
+/* ─── Scroll hint ─── */
+.services-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.4s ease;
+}
+
+.services-scroll-hint-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.services-scroll-hint-mouse {
+  width: 22px;
+  height: 36px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.services-scroll-hint-wheel {
+  width: 3px;
+  height: 7px;
+  background: var(--purple-2);
+  border-radius: 2px;
+  animation: scrollHintWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollHintWheel {
+  0%   { opacity: 1; transform: translateY(0); }
+  60%  { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 0; transform: translateY(0); }
 }
 
 /* Chaque slide */
