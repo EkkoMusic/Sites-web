@@ -9,9 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Three.js + STL Loader -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/STLLoader.js"></script>
 </head>
 <body>
 
@@ -122,11 +119,9 @@
   </section>
 
   <!-- ═══════════════════ SERVICES ═══════════════════ -->
-  <!-- Zone de scroll : 9 × 100vh pour 8 slides -->
+  <!-- Zone de scroll : 4 × 100vh pour 3 slides -->
   <div class="services-scroll-zone" id="servicesScrollZone">
     <section class="services" id="services">
-      <!-- Caméra 3D Three.js -->
-      <canvas id="cameraCanvas" class="camera-canvas"></canvas>
       <div class="services-inner">
 
         <!-- En-tête fixe -->
@@ -135,103 +130,71 @@
           <h2 class="section-title">Accompagnement<br /><span class="gradient-text">intégral</span></h2>
         </div>
 
-        <!-- Carousel -->
+        <!-- Carousel luxury -->
         <div class="services-carousel-wrap">
           <div class="services-carousel-track" id="servicesCarouselTrack">
 
-            <!-- Slide 01 -->
+            <!-- Slide 01 — Post-Production -->
             <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">01 / 08</div>
-                <h3 class="service-slide-title">Mixage Audio</h3>
-                <p class="service-slide-desc">Un mix équilibré et professionnel qui met en valeur chaque élément de votre production.</p>
+              <span class="slide-bg-num" aria-hidden="true">01</span>
+              <div class="service-slide-text">
+                <div class="service-slide-num">01 / 03</div>
+                <h3 class="service-slide-title">Post-<br />Production</h3>
+                <p class="service-slide-desc">Mixage, mastering et finalisation sonore. Chaque fréquence travaillée pour un résultat professionnel et immersif.</p>
+                <div class="service-slide-tags">
+                  <span>Mixage Audio</span>
+                  <span>Mastering</span>
+                  <span>Sound Design</span>
+                  <span>Montage Son</span>
+                  <span>Voix off &amp; Bruitage</span>
+                </div>
               </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+              <div class="service-slide-visual">
+                <div class="service-slide-card">
+                  <img src="images/OndoraPochette5.jpg" alt="Post-Production" />
+                </div>
               </div>
             </div>
 
-            <!-- Slide 02 -->
+            <!-- Slide 02 — Composition -->
             <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">02 / 08</div>
-                <h3 class="service-slide-title">Post-Production</h3>
-                <p class="service-slide-desc">Finalisation de vos projets avec un soin extrême du détail sonore.</p>
+              <span class="slide-bg-num" aria-hidden="true">02</span>
+              <div class="service-slide-text">
+                <div class="service-slide-num">02 / 03</div>
+                <h3 class="service-slide-title">Compo-<br />sition</h3>
+                <p class="service-slide-desc">Musiques originales, arrangements et création sonore au service de vos projets visuels ou auditifs.</p>
+                <div class="service-slide-tags">
+                  <span>Composition originale</span>
+                  <span>Musique à l'Image</span>
+                  <span>Arrangements</span>
+                  <span>Orchestration</span>
+                </div>
               </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div class="service-slide-visual">
+                <div class="service-slide-card">
+                  <img src="images/OndoraPochette7.png" alt="Composition" />
+                </div>
               </div>
             </div>
 
-            <!-- Slide 03 -->
+            <!-- Slide 03 — Enregistrement -->
             <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">03 / 08</div>
-                <h3 class="service-slide-title">Enregistrement</h3>
-                <p class="service-slide-desc">Des prises de son de qualité studio dans nos espaces acoustiques traités.</p>
+              <span class="slide-bg-num" aria-hidden="true">03</span>
+              <div class="service-slide-text">
+                <div class="service-slide-num">03 / 03</div>
+                <h3 class="service-slide-title">Enregis-<br />trement</h3>
+                <p class="service-slide-desc">Prises de son de qualité studio dans nos espaces acoustiques traités — Tours &amp; Saint-Brieuc.</p>
+                <div class="service-slide-tags">
+                  <span>Prise de son</span>
+                  <span>Direction artistique</span>
+                  <span>Studio Tours</span>
+                  <span>Studio Saint-Brieuc</span>
+                </div>
               </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/></svg>
-              </div>
-            </div>
-
-            <!-- Slide 04 -->
-            <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">04 / 08</div>
-                <h3 class="service-slide-title">Composition</h3>
-                <p class="service-slide-desc">Création de musiques originales adaptées à vos projets visuels ou auditifs.</p>
-              </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-              </div>
-            </div>
-
-            <!-- Slide 05 -->
-            <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">05 / 08</div>
-                <h3 class="service-slide-title">Musique à l'Image</h3>
-                <p class="service-slide-desc">Synchronisation parfaite entre son et image pour vos films, jeux vidéo et publicités.</p>
-              </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-              </div>
-            </div>
-
-            <!-- Slide 06 -->
-            <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">06 / 08</div>
-                <h3 class="service-slide-title">Sound Design</h3>
-                <p class="service-slide-desc">Création d'univers sonores uniques et immersifs pour tous types de médias.</p>
-              </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              </div>
-            </div>
-
-            <!-- Slide 07 -->
-            <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">07 / 08</div>
-                <h3 class="service-slide-title">Montage Son</h3>
-                <p class="service-slide-desc">Édition précise et minutieuse pour un résultat sonore impeccable.</p>
-              </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              </div>
-            </div>
-
-            <!-- Slide 08 -->
-            <div class="service-slide">
-              <div class="service-slide-body">
-                <div class="service-slide-num">08 / 08</div>
-                <h3 class="service-slide-title">Voix off &amp; Bruitage</h3>
-                <p class="service-slide-desc">Direction artistique et enregistrement de voix off et d'effets sonores sur mesure.</p>
-              </div>
-              <div class="service-slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77l3-.04a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.32a16 16 0 0 0 6.29 6.29l1.86-1.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div class="service-slide-visual">
+                <div class="service-slide-card">
+                  <img src="images/ekko-studio.png" alt="Enregistrement" />
+                </div>
               </div>
             </div>
 
@@ -250,11 +213,6 @@
         <div class="services-progress">
           <div class="services-dots" id="servicesDots">
             <span class="services-dot active"></span>
-            <span class="services-dot"></span>
-            <span class="services-dot"></span>
-            <span class="services-dot"></span>
-            <span class="services-dot"></span>
-            <span class="services-dot"></span>
             <span class="services-dot"></span>
             <span class="services-dot"></span>
           </div>
