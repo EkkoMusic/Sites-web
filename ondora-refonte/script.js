@@ -230,39 +230,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') pjCloseProject();
 });
 
-// ─── Contact form → mailto ───
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const nom     = contactForm.querySelector('#nom').value.trim();
-    const email   = contactForm.querySelector('#email').value.trim();
-    const service = contactForm.querySelector('#service').value;
-    const message = contactForm.querySelector('#message').value.trim();
-
-    const subject = encodeURIComponent(`[Ondora] Demande de ${nom}${service ? ' — ' + service : ''}`);
-    const body    = encodeURIComponent(
-      `Nom : ${nom}\nEmail : ${email}\nService : ${service || 'Non précisé'}\n\n${message}`
-    );
-    const to = 'aubertristan@gmail.com,pierresanges@gmail.com';
-
-    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-
-    // Feedback visuel
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const original = btn.innerHTML;
-    btn.textContent = 'Message envoyé !';
-    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      btn.disabled = false;
-      contactForm.reset();
-    }, 3000);
-  });
-}
 
 // ─── Smooth anchor scrolling ───
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

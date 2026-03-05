@@ -1269,10 +1269,19 @@ ul {
 .contact-inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-content--centered {
+  max-width: 560px;
+  width: 100%;
+}
+
+.contact-content--centered .contact-info {
+  align-items: center;
 }
 
 .contact-desc {
