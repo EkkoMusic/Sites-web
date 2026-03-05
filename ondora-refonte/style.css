@@ -1343,6 +1343,12 @@ ul {
   padding: 2.5rem;
 }
 
+.contact-form button[type="submit"] {
+  display: flex;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
