@@ -805,6 +805,10 @@ ul {
   transform: scale(1.06);
 }
 
+.pj-bg--zoom {
+  background-size: 160%;
+}
+
 /* Gradient + titre en bas */
 .pj-label {
   position: absolute;
