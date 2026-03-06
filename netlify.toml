@@ -1,0 +1,6 @@
+[build]
+  publish = "ondora-refonte"
+    command = ""
+
+    [build.environment]
+      NODE_VERSION = "20"
