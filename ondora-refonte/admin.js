@@ -2,7 +2,7 @@
    ONDORA — Admin Panel · admin.js
    ═══════════════════════════════════════════ */
 
-const ADMIN_PASSWORD = 'ondora2026';
+const ADMIN_PASSWORD = 'OndoraTFT';
 const MAX_PROJECTS   = 10;
 const STORAGE_KEY    = 'ondora_projects';
 
