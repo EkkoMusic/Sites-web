@@ -363,7 +363,7 @@ ul {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(3.8rem, 9vw, 8rem);
   font-weight: 900;
   line-height: 1.0;
   letter-spacing: -0.04em;
@@ -451,14 +451,6 @@ ul {
   padding: 1.5rem 2rem 6rem;
   max-width: 680px;
   width: 100%;
-}
-
-.hero-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: .04em;
-  margin-bottom: .6rem;
 }
 
 .hero-desc {
