@@ -355,6 +355,54 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
+// ═══════════════════ DANS NOS MURS — Modal flip vidéo ═══════════════════
+(function () {
+  const modal    = document.getElementById('dnmModal');
+  const backdrop = document.getElementById('dnmModalBackdrop');
+  const inner    = document.getElementById('dnmModalInner');
+  const iframe   = document.getElementById('dnmIframe');
+  const closeBtn = document.getElementById('dnmModalClose');
+  const titleEl  = document.getElementById('dnmModalTitle');
+  const bioEl    = document.getElementById('dnmModalBio');
+
+  if (!modal) return;
+
+  function openModal(videoId, name, bio) {
+    titleEl.textContent = name;
+    bioEl.textContent   = bio;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.dnm-card[data-video]').forEach(card => {
+    card.addEventListener('click', () => {
+      const videoId = card.dataset.video;
+      const name    = card.querySelector('.dnm-card-name').textContent;
+      const bio     = card.querySelector('.dnm-card-bio').textContent;
+      openModal(videoId, name, bio);
+    });
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+})();
+
 // ─── Pause banner animation on reduced motion ───
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const bannerTrack = document.getElementById('bannerTrack');
