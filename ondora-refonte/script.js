@@ -205,6 +205,47 @@ window.addEventListener('scroll', updateServicesTarget, { passive: true });
 updateServicesTarget();
 animateServicesCarousel();
 
+// ─── Projets — chargement depuis projects.json ───
+function buildProjectCard(p) {
+  const article = document.createElement('article');
+  article.className = 'pj-card';
+  article.dataset.video = p.video;
+  article.dataset.title = p.title;
+  if (p.format)   article.dataset.format = p.format;
+  if (p.annee)    article.dataset.annee  = p.annee;
+  if (p.duree)    article.dataset.duree  = p.duree;
+  if (p.real)     article.dataset.real   = p.real;
+  if (p.prod)     article.dataset.prod   = p.prod;
+  if (p.desc)     article.dataset.desc   = p.desc;
+
+  const bgStyle = [`background-image:url('https://img.youtube.com/vi/${p.video}/maxresdefault.jpg')`];
+  if (p.bgSize)     bgStyle.push(`background-size: ${p.bgSize}`);
+  if (p.bgPosition) bgStyle.push(`background-position: ${p.bgPosition}`);
+  const bgClass = p.bgSize ? 'pj-bg pj-bg--zoom' : 'pj-bg';
+
+  article.innerHTML = `
+    <span class="pj-br pj-br--tl"></span><span class="pj-br pj-br--tr"></span>
+    <span class="pj-br pj-br--bl"></span><span class="pj-br pj-br--br"></span>
+    <div class="${bgClass}" style="${bgStyle.join('; ')};"></div>
+    <div class="pj-label"><h3>${p.title}</h3></div>`;
+  return article;
+}
+
+async function loadProjects() {
+  const grid = document.getElementById('projetsGrid');
+  if (!grid) return;
+  try {
+    const res  = await fetch('projects.json?v=' + Date.now());
+    const data = await res.json();
+    grid.innerHTML = '';
+    data.forEach(p => grid.appendChild(buildProjectCard(p)));
+  } catch (e) {
+    console.error('Impossible de charger projects.json', e);
+  }
+}
+
+loadProjects();
+
 // ─── Projets — brackets inversion + panel vidéo ───
 const PJ_OFFSET = 10; // distance bracket / bord de la carte (px)
 const PJ_SIZE   = 16; // taille du bracket (px)
@@ -264,9 +305,10 @@ function pjCloseProject() {
   document.body.style.overflow = '';
 }
 
-// Clic sur une carte
-document.querySelectorAll('.pj-card').forEach(card => {
-  card.addEventListener('click', () => pjOpenProject(card));
+// Clic sur une carte (délégation — fonctionne avec les cartes chargées dynamiquement)
+document.addEventListener('click', e => {
+  const card = e.target.closest('.pj-card');
+  if (card) pjOpenProject(card);
 });
 
 // Fermeture
