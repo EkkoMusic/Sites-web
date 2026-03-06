@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ondora Productions — Studio d'enregistrement & Post-production</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="images/logo.png" alt="Ondora Productions" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#propos">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Nous contacter</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero" id="accueil">
+    <div class="hero-bg">
+      <div class="hero-glow"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <!-- Titre centré en haut -->
+    <div class="hero-top">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Studios à Tours &amp; Saint-Brieuc
+      </div>
+      <h1 class="hero-title">
+        Ondora <span class="gradient-text">Productions</span>
+      </h1>
+    </div>
+
+    <!-- Bandeau pochettes diagonal pleine largeur -->
+    <div class="hero-albums-outer">
+      <div class="hero-albums-inner" id="heroAlbumsInner">
+        <div class="albums-row">
+          <div class="albums-track albums-track--left">
+            <div class="album-thumb"><img src="images/OndoraPochette2.webp" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette3.jpg" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette4.jpg" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette5.jpg" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette6.webp" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette7.png" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette8.png" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette9.png" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette10.jpg" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette11.jpg" alt="" /></div>
+            <div class="album-thumb"><img src="images/OndoraPochette12.jpg" alt="" /></div>
+            <!-- Duplication pour boucle infinie -->
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette2.webp" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette3.jpg" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette4.jpg" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette5.jpg" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette6.webp" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette7.png" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette8.png" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette9.png" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette10.jpg" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette11.jpg" alt="" /></div>
+            <div class="album-thumb" aria-hidden="true"><img src="images/OndoraPochette12.jpg" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description + CTA en bas -->
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Ondora Productions<br />
+        Studio de Post-Production, Composition &amp; Enregistrement.<br />
+        Donnez vie à vos créations avec un son professionnel.
+      </p>
+      <div class="hero-actions">
+        <a href="#projets" class="btn btn--primary">Voir nos projets</a>
+        <a href="#services" class="btn btn--ghost">Nos services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Studios</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">+50</span>
+          <span class="stat-label">Projets</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">8</span>
+          <span class="stat-label">Services</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SERVICES ═══════════════════ -->
+  <!-- Zone de scroll : 4 × 100vh pour 3 slides -->
+  <div class="services-scroll-zone" id="servicesScrollZone">
+    <section class="services" id="services">
+
+      <!-- Fond plein écran (image de studio) -->
+      <div class="services-bg">
+        <img src="images/F9rgp9OW8AASeur.jfif" alt="Studio Ondora"
+             onerror="this.src='images/ekko-studio.png'" />
+      </div>
+
+      <!-- Texte fantôme — nom de la section courante -->
+      <div class="services-ghost" id="servicesGhost">Post-Production</div>
+
+      <!-- Cartes verticales -->
+      <div class="svc-cards-wrap">
+
+        <!-- Carte 01 — Post-Production -->
+        <article class="svc-card">
+          <div class="svc-card-frame">
+            <span class="svc-card-num">01 / 03</span>
+            <h3 class="svc-card-title">Post-Production</h3>
+            <p class="svc-card-desc">Mixage, mastering et finalisation sonore. Chaque fréquence travaillée pour un résultat professionnel et immersif.</p>
+            <div class="svc-card-tags">
+              <span>Mixage Audio</span>
+              <span>Mastering</span>
+              <span>Sound Design</span>
+              <span>Montage Son</span>
+            </div>
+            <a href="#contact" class="svc-card-btn">En savoir plus</a>
+          </div>
+        </article>
+
+        <!-- Carte 02 — Composition -->
+        <article class="svc-card">
+          <div class="svc-card-frame">
+            <span class="svc-card-num">02 / 03</span>
+            <h3 class="svc-card-title">Composition</h3>
+            <p class="svc-card-desc">Musiques originales, arrangements et création sonore au service de vos projets visuels ou auditifs.</p>
+            <div class="svc-card-tags">
+              <span>Composition originale</span>
+              <span>Musique à l'Image</span>
+              <span>Arrangements</span>
+              <span>Orchestration</span>
+            </div>
+            <a href="#contact" class="svc-card-btn">En savoir plus</a>
+          </div>
+        </article>
+
+        <!-- Carte 03 — Enregistrement -->
+        <article class="svc-card">
+          <div class="svc-card-frame">
+            <span class="svc-card-num">03 / 03</span>
+            <h3 class="svc-card-title">Enregistrement</h3>
+            <p class="svc-card-desc">Prises de son de qualité studio dans nos espaces acoustiques traités — Tours &amp; Saint-Brieuc.</p>
+            <div class="svc-card-tags">
+              <span>Prise de son</span>
+              <span>Direction artistique</span>
+              <span>Studio Tours</span>
+              <span>Studio Saint-Brieuc</span>
+            </div>
+            <a href="#contact" class="svc-card-btn">En savoir plus</a>
+          </div>
+        </article>
+
+      </div><!-- /.svc-cards-wrap -->
+
+      <!-- Dots de navigation -->
+      <div class="svc-nav-dots">
+        <span class="svc-dot active"></span>
+        <span class="svc-dot"></span>
+        <span class="svc-dot"></span>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="svc-scroll-hint" id="svcScrollHint">
+        <span>Défiler</span>
+        <div class="svc-scroll-hint-line"></div>
+      </div>
+
+    </section>
+  </div><!-- /.services-scroll-zone -->
+
+  <!-- ═══════════════════ PROJETS ═══════════════════ -->
+  <section class="projets" id="projets">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Nos <span class="gradient-text">Projets</span></h2>
+        <p class="section-desc">Une sélection de nos dernières réalisations à travers différents genres et disciplines.</p>
+      </div>
+
+      <div class="projets-grid" id="projetsGrid">
+        <!-- Cartes chargées dynamiquement depuis projects.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PANEL PROJET ═══════════════════ -->
+  <div class="pj-panel" id="pjPanel" role="dialog" aria-modal="true">
+    <div class="pj-panel-backdrop" id="pjPanelBackdrop"></div>
+    <div class="pj-panel-box" id="pjPanelBox">
+      <span class="pj-br pj-br--tl"></span><span class="pj-br pj-br--tr"></span>
+      <span class="pj-br pj-br--bl"></span><span class="pj-br pj-br--br"></span>
+      <div class="pj-panel-inner">
+        <div class="pj-panel-video">
+          <iframe id="pjIframe" src="" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="pj-panel-info">
+          <h3 id="pjTitle"></h3>
+          <ul class="pj-meta" id="pjMeta"></ul>
+          <p id="pjDesc"></p>
+          <button id="pjClose" class="pj-close" aria-label="Fermer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ À PROPOS ═══════════════════ -->
+  <section class="apropos" id="propos">
+    <div class="container">
+      <div class="apropos-inner">
+        <div class="apropos-visual">
+          <div class="apropos-visual-tilt" id="aproposTilt">
+            <div class="apropos-img-wrap">
+              <img src="images/Ekkorecrop.jfif" alt="Studio Ondora" />
+              <div class="apropos-img-glow"></div>
+            </div>
+            <div class="apropos-card floating-card">
+              <div class="floating-card-icon">🎵</div>
+              <span class="floating-card-num">+50</span>
+              <span class="floating-card-label">Projets réalisés</span>
+            </div>
+            <div class="apropos-card floating-card floating-card--2">
+              <div class="floating-card-icon">📍</div>
+              <span class="floating-card-num">2</span>
+              <span class="floating-card-label">Studios en France</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="apropos-content">
+          <span class="section-tag">Notre histoire</span>
+          <h2 class="section-title">Ils nous ont<br /><span class="gradient-text">fait confiance</span></h2>
+          <p class="apropos-text">
+            Ondora Productions est un studio de post-production, composition et enregistrement basé en France, avec deux antennes à Tours et à Saint-Brieuc.
+          </p>
+          <p class="apropos-text">
+            Nous sommes deux amis et compositeurs passionnés, et nous accompagnons artistes, réalisateurs et créateurs à chaque étape de leur projet — du premier accord jusqu'à la diffusion finale.
+          </p>
+
+          <div class="apropos-features">
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Équipements professionnels haut de gamme</span>
+            </div>
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Acoustique traitée dans nos studios</span>
+            </div>
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Ingénieurs du son expérimentés</span>
+            </div>
+            <div class="apropos-feature">
+              <div class="feature-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Suivi personnalisé de chaque projet</span>
+            </div>
+          </div>
+
+          <div class="studios-badges">
+            <div class="studio-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <strong>Tours</strong>
+                <span>Studio principal</span>
+              </div>
+            </div>
+            <div class="studio-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <strong>Saint-Brieuc</strong>
+                <span>Studio secondaire</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bandeau logos partenaires -->
+      <div class="partenaires">
+        <div class="partenaires-track">
+          <img src="images/ARS.png"                                    alt="ARS" />
+          <img src="images/bordeaux_metropole_white_text.png"          alt="Bordeaux Métropole" />
+          <img src="images/centre monument nationnaux.png"             alt="Centre des Monuments Nationaux" />
+          <img src="images/FranceTV_france_white (1).png"              alt="France TV" />
+          <img src="images/Galions.png"                                alt="Galions" />
+          <img src="images/ministrere de la culture.png"               alt="Ministère de la Culture" />
+          <img src="images/nouvelleaquitaine_white_text.png"           alt="Nouvelle-Aquitaine" />
+          <img src="images/ZeratoR.png"                                alt="ZeratoR" />
+          <!-- Doublon pour la boucle infinie -->
+          <img src="images/ARS.png"                                    alt="ARS" aria-hidden="true" />
+          <img src="images/bordeaux_metropole_white_text.png"          alt="Bordeaux Métropole" aria-hidden="true" />
+          <img src="images/centre monument nationnaux.png"             alt="Centre des Monuments Nationaux" aria-hidden="true" />
+          <img src="images/FranceTV_france_white (1).png"              alt="France TV" aria-hidden="true" />
+          <img src="images/Galions.png"                                alt="Galions" aria-hidden="true" />
+          <img src="images/ministrere de la culture.png"               alt="Ministère de la Culture" aria-hidden="true" />
+          <img src="images/nouvelleaquitaine_white_text.png"           alt="Nouvelle-Aquitaine" aria-hidden="true" />
+          <img src="images/ZeratoR.png"                                alt="ZeratoR" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT ═══════════════════ -->
+  <section class="contact" id="contact">
+    <div class="contact-bg">
+      <div class="contact-orb"></div>
+    </div>
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-content contact-content--centered">
+          <span class="section-tag">Travaillons ensemble</span>
+          <h2 class="section-title">Prêt à donner vie<br />à votre <span class="gradient-text">projet ?</span></h2>
+          <p class="contact-desc">Discutons de votre vision. Nous sommes disponibles pour vous accompagner du premier contact jusqu'à la livraison finale.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Tours &amp; Saint-Brieuc, France</span>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77l3-.04a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.32a16 16 0 0 0 6.29 6.29l1.86-1.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <a href="tel:0768846648">07 68 84 66 48</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <a href="mailto:aubertristan@gmail.com">aubertristan@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <a href="mailto:pierresanges@gmail.com">pierresanges@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="Ondora Productions" class="footer-logo" />
+          <p>Studio de Post-Production, Composition &amp; Enregistrement basé en France.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#propos">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Mixage Audio</a></li>
+            <li><a href="#services">Post-Production</a></li>
+            <li><a href="#services">Composition</a></li>
+            <li><a href="#services">Sound Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Studios</h4>
+          <ul>
+            <li><a href="#contact">Tours</a></li>
+            <li><a href="#contact">Saint-Brieuc</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2026 &copy; Ondora Productions — Record &amp; Production Studio</p>
+        <a href="admin.html" style="font-size:.7rem;color:#2a2a3a;text-decoration:none;letter-spacing:.03em;transition:color .2s" onmouseover="this.style.color='#444'" onmouseout="this.style.color='#2a2a3a'">admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
