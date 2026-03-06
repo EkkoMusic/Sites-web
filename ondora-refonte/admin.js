@@ -2,26 +2,30 @@
    ONDORA — Admin Panel · admin.js
    ═══════════════════════════════════════════ */
 
-const ADMIN_PASSWORD = 'OndoraTFT';
-const MAX_PROJECTS   = 10;
-const STORAGE_KEY    = 'ondora_projects';
+// Hash SHA-256 du mot de passe (le mot de passe en clair n'est jamais stocké)
+const ADMIN_HASH   = '92819205c29c2f8ea2a7651f5538d64f9d8816113d6c98af5f73921480540c03';
+const MAX_PROJECTS = 10;
+const STORAGE_KEY  = 'ondora_projects';
 
-let projects   = [];
-let editIndex  = null; // null = nouveau projet, number = index édité
+let projects    = [];
+let editIndex   = null;
 let deleteIndex = null;
 
+async function sha256(str) {
+  const buf  = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 // ─── Auth ───────────────────────────────────
-const loginScreen   = document.getElementById('loginScreen');
-const app           = document.getElementById('app');
-const pwInput       = document.getElementById('pwInput');
-const loginBtn      = document.getElementById('loginBtn');
-const loginError    = document.getElementById('loginError');
-const logoutBtn     = document.getElementById('logoutBtn');
+const loginScreen = document.getElementById('loginScreen');
+const app         = document.getElementById('app');
+const pwInput     = document.getElementById('pwInput');
+const loginBtn    = document.getElementById('loginBtn');
+const loginError  = document.getElementById('loginError');
+const logoutBtn   = document.getElementById('logoutBtn');
 
 function checkAuth() {
-  if (sessionStorage.getItem('ondora_admin') === '1') {
-    showApp();
-  }
+  if (sessionStorage.getItem('ondora_admin') === '1') showApp();
 }
 
 function showApp() {
@@ -30,8 +34,9 @@ function showApp() {
   loadData();
 }
 
-loginBtn.addEventListener('click', () => {
-  if (pwInput.value === ADMIN_PASSWORD) {
+loginBtn.addEventListener('click', async () => {
+  const hash = await sha256(pwInput.value);
+  if (hash === ADMIN_HASH) {
     sessionStorage.setItem('ondora_admin', '1');
     loginError.style.display = 'none';
     showApp();
