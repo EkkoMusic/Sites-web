@@ -227,6 +227,22 @@ function pjOpenProject(card) {
   // Ouvrir le panel après la mi-animation (250ms)
   setTimeout(() => {
     document.getElementById('pjTitle').textContent = card.dataset.title;
+    const metaEl = document.getElementById('pjMeta');
+    metaEl.innerHTML = '';
+    const metaFields = [
+      { key: 'type',  label: 'Format' },
+      { key: 'annee', label: 'Année' },
+      { key: 'duree', label: 'Durée' },
+      { key: 'real',  label: 'Réalisation' },
+      { key: 'prod',  label: 'Production' },
+    ];
+    metaFields.forEach(({ key, label }) => {
+      if (card.dataset[key]) {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="pj-meta-label">${label}</span><span class="pj-meta-value">${card.dataset[key]}</span>`;
+        metaEl.appendChild(li);
+      }
+    });
     document.getElementById('pjDesc').textContent  = card.dataset.desc;
     document.getElementById('pjIframe').src =
       `https://www.youtube.com/embed/${card.dataset.video}?autoplay=1&rel=0`;

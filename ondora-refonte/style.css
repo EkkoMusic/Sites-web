@@ -983,6 +983,36 @@ ul {
   line-height: 1.2;
 }
 
+.pj-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pj-meta li {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  align-items: baseline;
+}
+
+.pj-meta-label {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.pj-meta-value {
+  color: var(--text-secondary);
+}
+
 .pj-panel-info p {
   font-size: 0.9rem;
   color: var(--text-secondary);
