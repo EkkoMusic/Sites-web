@@ -230,7 +230,7 @@ function pjOpenProject(card) {
     const metaEl = document.getElementById('pjMeta');
     metaEl.innerHTML = '';
     const metaFields = [
-      { key: 'type',  label: 'Format' },
+      { key: 'format',  label: 'Format' },
       { key: 'annee', label: 'Année' },
       { key: 'duree', label: 'Durée' },
       { key: 'real',  label: 'Réalisation' },
