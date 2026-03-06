@@ -2224,6 +2224,36 @@ ul {
   object-position: center top;
 }
 
+.mecena-artist-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.mecena-social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mecena-social-link svg {
+  stroke: var(--purple-2);
+  transition: stroke 0.2s;
+}
+
+.mecena-social-link:hover {
+  color: #fff;
+}
+
+.mecena-social-link:hover svg {
+  stroke: #fff;
+}
+
 .mecena-img-caption {
   position: absolute;
   bottom: 0;
