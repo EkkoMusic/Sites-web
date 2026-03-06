@@ -1718,8 +1718,8 @@ ul {
 /* ── Carte style TCG portrait ── */
 .dnm-card {
   position: relative;
-  width: 300px;
-  height: 420px;
+  width: 340px;
+  height: 476px;
   border-radius: 1.1rem;
   overflow: hidden;
   cursor: pointer;
