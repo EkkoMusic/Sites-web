@@ -198,7 +198,7 @@ function openModal(idx) {
   if (idx !== null) {
     const p = projects[idx];
     modalTitle.textContent = 'Modifier le projet';
-    fVideo.value    = p.video       || '';
+    fVideo.value    = p.video ? `https://www.youtube.com/watch?v=${p.video}` : '';
     fTitle.value    = p.title       || '';
     fFormat.value   = p.format      || '';
     fAnnee.value    = p.annee       || '';
@@ -224,10 +224,33 @@ modalClose.addEventListener('click',  closeModal);
 modalCancel.addEventListener('click', closeModal);
 modalBackdrop.addEventListener('click', e => { if (e.target === modalBackdrop) closeModal(); });
 
-fVideo.addEventListener('input', () => updateThumb(fVideo.value.trim()));
+function extractYoutubeId(input) {
+  const s = input.trim();
+  // Déjà un ID court (11 caractères alphanumériques)
+  if (/^[a-zA-Z0-9_-]{11}$/.test(s)) return s;
+  try {
+    const url = new URL(s);
+    // youtube.com/watch?v=ID  ou  youtube.com/shorts/ID  ou  youtube.com/embed/ID
+    if (url.hostname.includes('youtube.com')) {
+      return url.searchParams.get('v')
+        || url.pathname.split('/').filter(Boolean).pop()
+        || null;
+    }
+    // youtu.be/ID
+    if (url.hostname === 'youtu.be') {
+      return url.pathname.slice(1) || null;
+    }
+  } catch (_) {}
+  return null;
+}
+
+fVideo.addEventListener('input', () => {
+  const id = extractYoutubeId(fVideo.value);
+  updateThumb(id);
+});
 
 function updateThumb(videoId) {
-  if (videoId && videoId.length > 5) {
+  if (videoId && videoId.length >= 11) {
     thumbPreview.src = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
     thumbPreview.style.display = 'block';
   } else {
@@ -237,10 +260,10 @@ function updateThumb(videoId) {
 }
 
 modalSave.addEventListener('click', () => {
-  const videoId = fVideo.value.trim();
+  const videoId = extractYoutubeId(fVideo.value);
   const title   = fTitle.value.trim();
   if (!videoId || !title) {
-    toast('L\'ID vidéo et le titre sont requis', 'error');
+    toast('Lien YouTube invalide ou titre manquant', 'error');
     return;
   }
 
