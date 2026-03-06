@@ -453,6 +453,14 @@ ul {
   width: 100%;
 }
 
+.hero-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: .04em;
+  margin-bottom: .6rem;
+}
+
 .hero-desc {
   font-size: 1.05rem;
   color: var(--text-secondary);
