@@ -1613,6 +1613,47 @@ ul {
     font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
+  /* ── Services — layout classique sur mobile ── */
+  .services-scroll-zone {
+    height: auto;
+  }
+
+  .services {
+    position: relative;
+    height: auto;
+    overflow: visible;
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .services-ghost,
+  .svc-nav-dots,
+  .svc-scroll-hint {
+    display: none;
+  }
+
+  .svc-cards-wrap {
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .svc-card {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    transform: none !important;
+  }
+
+  .svc-card-frame {
+    padding: 2.5rem 1.75rem;
+  }
+
+  /* ── Fin Services mobile ── */
+
   .services-grid {
     grid-template-columns: 1fr;
   }

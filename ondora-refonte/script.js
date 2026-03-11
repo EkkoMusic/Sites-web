@@ -154,9 +154,12 @@ const SLIDE_NAMES        = ['Post-Production', 'Composition', 'Enregistrement'];
 let svcTargetOffset  = 0;
 let svcCurrentOffset = 0;
 let svcActiveDot     = -1;
+let svcRafRunning    = false;
+
+function isSvcMobile() { return window.innerWidth <= 768; }
 
 function updateServicesTarget() {
-  if (!servicesScrollZone) return;
+  if (!servicesScrollZone || isSvcMobile()) return;
   const rect      = servicesScrollZone.getBoundingClientRect();
   const zoneH     = servicesScrollZone.offsetHeight;
   const vh        = window.innerHeight;
@@ -173,6 +176,14 @@ function updateServicesTarget() {
 }
 
 function animateServicesCarousel() {
+  // Sur mobile : pas de carousel, on s'arrête
+  if (isSvcMobile()) {
+    svcCards.forEach(card => { card.style.transform = ''; });
+    svcRafRunning = false;
+    return;
+  }
+  svcRafRunning = true;
+
   svcCurrentOffset += (svcTargetOffset - svcCurrentOffset) * 0.08;
 
   // Positionnement vertical de chaque carte (en vh)
@@ -200,6 +211,13 @@ function animateServicesCarousel() {
 
   requestAnimationFrame(animateServicesCarousel);
 }
+
+// Redémarrer le carousel si on passe de mobile → desktop
+window.addEventListener('resize', () => {
+  if (!isSvcMobile() && !svcRafRunning) {
+    animateServicesCarousel();
+  }
+}, { passive: true });
 
 window.addEventListener('scroll', updateServicesTarget, { passive: true });
 updateServicesTarget();
